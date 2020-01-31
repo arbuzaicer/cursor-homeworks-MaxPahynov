@@ -53,7 +53,7 @@ function getData(event) {
         <div class="resData"> <div class="textField">Сумма всех товаров есть четным (EVEN) или нечетным (ODD) числом</div> <div class="values">${(Math.floor(total) % 2 === 0) ? 'Even': 'Odd'}</div> </div>
         <div class="resData"> <div class="textField">Сумма сдачи, при оплате всех товаров (без округления), если клиент платит 500 грн </div> <div class="values">${500-total+' UAH'}</div> </div>
         <div class="resData"> <div class="textField">Среднее значение цен, округленное до второго знака после запятой</div> <div class="values">${((total)/3).toFixed(2)}</div> </div>
-        <div class="resData"> <div class="textField">Скидка дня составляет</div> <div class="values">${discount}</div> </div>
+        <div class="resData"> <div class="textField">Скидка дня составляет</div> <div class="values">${discount*100}%</div> </div>
         <div class="resData"> <div class="textField">Сумма товаров с учетом скидки</div> <div class="values">${(total*(1-discount)).toFixed(2)}</div> </div>
         <div class="resData"> <div class="textField">Упущенная выгода</div> <div class="values">${(Math.floor(total/2)-(Math.floor(total)-Math.floor(total)*(1-discount))).toFixed(2)}</div> </div>
         `
