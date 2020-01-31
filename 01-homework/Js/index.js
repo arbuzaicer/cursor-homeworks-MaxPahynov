@@ -7,7 +7,8 @@ let resBtn = document.getElementById('reset');
 document.getElementById('submit').addEventListener('click', getData);
 
 
-function getData() {
+function getData(event) {
+    event.preventDefault();
     resBtn.classList.remove('hide');
     let blackTea = +inp1.value;
     let beef = +inp2.value;
