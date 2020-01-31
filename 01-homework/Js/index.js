@@ -1,33 +1,33 @@
 /*Variables initializing*/
-let inp1 = document.querySelector('#val1');
-let inp2 = document.querySelector('#val2');
-let inp3 = document.querySelector('#val3');
-let resBtn = document.getElementById('reset');
+const inp1 = document.querySelector('#val1');
+const inp2 = document.querySelector('#val2');
+const inp3 = document.querySelector('#val3');
+const resBtn = document.getElementById('reset');
 
 document.getElementById('submit').addEventListener('click', getData);
 
 
 function getData(event) {
-    document.body.style.height = 'auto';
+    document.body.style.height = '150%';
     event.preventDefault();
     resBtn.classList.remove('hide');
-    let blackTea = +inp1.value;
-    let beef = +inp2.value;
-    let mushrooms = +inp3.value;
+    const blackTea = +inp1.value;
+    const beef = +inp2.value;
+    const mushrooms = +inp3.value;
 
     console.log('Max price is:',Math.max(blackTea, beef, mushrooms)); //Max value
     console.log('Min price is:',Math.min(blackTea, beef, mushrooms)); //Min value
 
-    let total = blackTea+beef+mushrooms;
+    const total = blackTea+beef+mushrooms;
 
     console.log('Total price is:', total);
     console.log('Rounded to floor price:', Math.floor(total));
 
 
     function getRoundedValue(sum) {
-        let value = sum.toString();
-        let lengthValue = value.length;
-        let curValue = sum/(10**(lengthValue-1));
+        const value = sum.toString();
+        const lengthValue = value.length;
+        const curValue = sum/(10**(lengthValue-1));
         return Math.round(curValue)*10**(lengthValue-1);
     }
 
@@ -38,7 +38,7 @@ function getData(event) {
     console.log('Average price:', ((total)/3).toFixed(2));
 
 
-    let discount = Math.random().toFixed(2);
+    const discount = Math.random().toFixed(2);
     console.log('Discount is:', discount);
     console.log('Price with discount is:', (total*(1-discount)).toFixed(2));
     console.log('Lost profit is:', (Math.floor(total/2)-(Math.floor(total)-Math.floor(total)*(1-discount))).toFixed(2));
