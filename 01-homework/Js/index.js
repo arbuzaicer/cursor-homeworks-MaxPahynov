@@ -21,7 +21,7 @@ function getData(event) {
     const total = blackTea+beef+mushrooms;
 
     console.log('Total price is:', total);
-    console.log('Rounded to floor price:', Math.floor(total));
+    console.log('Rounded to floor price:', Math.floor(blackTea)+Math.floor(beef)+Math.floor(mushrooms));
 
 
     function getRoundedValue(sum) {
@@ -48,7 +48,7 @@ function getData(event) {
         <div class="resData"> <div class="textField">Максимальное число</div> <div class="values">${Math.max(blackTea, beef, mushrooms)}</div> </div>
         <div class="resData"> <div class="textField">Минимальное число</div> <div class="values">${Math.min(blackTea, beef, mushrooms)}</div> </div>
         <div class="resData"> <div class="textField">Стоимость всех товаров</div> <div class="values">${total}</div> </div>
-        <div class="resData"> <div class="textField">Целая часть стоимости всех товаров, округленная в меньшую сторону</div> <div class="values">${Math.floor(total)}</div> </div>
+        <div class="resData"> <div class="textField">Целая часть стоимости всех товаров, округленная в меньшую сторону</div> <div class="values">${Math.floor(blackTea)+Math.floor(beef)+Math.floor(mushrooms)}</div> </div>
         <div class="resData"> <div class="textField">Сумма товаров округленная до сотен</div> <div class="values">${getRoundedValue(total.toFixed(0))}</div> </div>
         <div class="resData"> <div class="textField">Сумма всех товаров есть четным (EVEN) или нечетным (ODD) числом</div> <div class="values">${(Math.floor(total) % 2 === 0) ? 'Even': 'Odd'}</div> </div>
         <div class="resData"> <div class="textField">Сумма сдачи, при оплате всех товаров (без округления), если клиент платит 500 грн </div> <div class="values">${500-total+' UAH'}</div> </div>
