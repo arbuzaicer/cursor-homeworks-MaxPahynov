@@ -1,13 +1,16 @@
 body {
-    background: linear-gradient(24deg, #230f55, #121225, #180936);
+    background: linear-gradient(24deg, #230f55, #121225, #180936) no-repeat;
     display: flex;
+    background-size: cover;
     align-items: center;
-    height: 100vh;
     flex-direction: column;
+    height: 100vh;
 }
+
 h1 {
     color: white;
 }
+
 #form {
     display: flex;
     flex-direction: column;
@@ -15,6 +18,10 @@ h1 {
     align-items: center;
     margin-bottom: 2rem;
 }
+.textField {
+    width: 70%;
+}
+
 .form-field {
     width: 35%;
     margin-bottom: 0.8rem;
@@ -23,11 +30,12 @@ h1 {
     border: 0;
     padding-left: 2rem;
     color: #fff;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     font-family: monospace;
     background-color: rgba(255, 255, 255, 0.25);
     transition: 0.4s;
 }
+
 #submit {
     border: 0;
     border-radius: 5px;
@@ -40,9 +48,11 @@ h1 {
     font-family: monospace;
     transition: 0.7s;
 }
+
 .hide {
     display: none;
 }
+
 #reset {
     border: 0;
     border-radius: 5px;
@@ -57,16 +67,18 @@ h1 {
     right: 2rem;
     transition: 0.7s;
 }
+
 .data {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
 }
+
 .resData {
     color: #fff;
     font-family: monospace;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     height: 3rem;
     display: flex;
     width: 60%;
@@ -77,9 +89,11 @@ h1 {
     align-items: center;
     transition: 0.7s;
 }
+
 .resData:nth-child(even) {
     background-color: rgba(215, 227, 255, 0.21);
 }
+
 .resData:nth-child(odd) {
     background-color: rgba(135, 255, 231, 0.21);
 }
@@ -95,6 +109,7 @@ h1 {
     background-color: #fff;
     color: #000;
 }
+
 #submit:hover, #reset:hover {
     transform: scale(1.1);
     box-shadow: 4px 4px 5px #2ab380;
@@ -102,5 +117,15 @@ h1 {
 
 .resData:hover {
     margin-left: 2rem;
+}
+
+@media (max-width: 980px) {
+    #reset {
+        right: 5px;
+        transform: scale(0.7);
+    }
+    .resData {
+        height: 4rem;
+    }
 }
 
