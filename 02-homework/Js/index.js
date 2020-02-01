@@ -13,6 +13,16 @@ function startGame() {
     const booleanData = confirm('Пропускати парні числа?');
 
     const result = calculate(startValue, endValue, booleanData);
+    if(!result) {
+        const btn = document.createElement('h2');
+        btn.innerHTML = `<button class="btn" id="restart">Го ще раз</button>`;
+        document.body.appendChild(btn);
+        document.getElementById('restart').addEventListener('click', () => {
+            showElement(startBtn);
+            document.body.removeChild(btn);
+        });
+        return;
+    }
 
     /*Creating timer function*/
 
@@ -51,8 +61,14 @@ function calculate(val1, val2, flag) {
 
     let counter = 0;
 
-    for (let i = val1; i <= val2; flag === true ? i += 2 : i++) {
-        counter += i;
+    for (let i = val1; i <= val2; i++) {
+        if (flag) {
+            if (i % 2 !== 0) {
+                counter += i;
+            }
+        } else {
+            counter += i;
+        }
     }
 
     return counter;
