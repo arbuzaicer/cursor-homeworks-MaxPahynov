@@ -14,6 +14,7 @@ function startGame() {
 
     const result = calculate(startValue, endValue, booleanData);
     if(!result) {
+        alert('Друге значення повинно бути більшим ніж перше. Давайте ще раз');
         const btn = document.createElement('h2');
         btn.innerHTML = `<button class="btn" id="restart">Го ще раз</button>`;
         document.body.appendChild(btn);
@@ -55,7 +56,6 @@ function calculate(val1, val2, flag) {
     val2 = validator(val2);
 
     if (val1 >= val2) {
-        alert('Второе число должно быть больше');
         return;
     }
 
