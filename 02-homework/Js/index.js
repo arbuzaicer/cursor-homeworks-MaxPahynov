@@ -8,8 +8,8 @@ startBtn.addEventListener('click', startGame);
 function startGame() {
 
     hideElement(startBtn);
-    const startValue = +prompt('Введіть стартове число', '10');
-    const endValue = +prompt('Введіть кінцеве число', '100');
+    const startValue = Number(prompt('Введіть стартове число', '10'));
+    const endValue = Number(prompt('Введіть кінцеве число', '100'));
     const booleanData = confirm('Пропускати парні числа?');
 
     const result = calculate(startValue, endValue, booleanData);
@@ -52,8 +52,8 @@ function startGame() {
 /*Loops logic*/
 
 function calculate(val1, val2, flag) {
-    val1 = validator(val1);
-    val2 = validator(val2);
+    val1 =  Math.floor(val1);
+    val2 =  Math.floor(val2);
 
     if (val1 >= val2) {
         return;
@@ -72,12 +72,6 @@ function calculate(val1, val2, flag) {
     }
 
     return counter;
-}
-
-/*IsPrime (IsNumber Simple) checking*/
-
-function validator(value) {
-    return (value).toString().indexOf('.') !== -1 ? value = Math.floor(value) : value;
 }
 
 /*Show/hide element functions*/
