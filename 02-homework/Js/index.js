@@ -83,4 +83,3 @@ function hideElement(elem) {
 function showElement(elem) {
     elem.classList.remove('hide')
 }
-
