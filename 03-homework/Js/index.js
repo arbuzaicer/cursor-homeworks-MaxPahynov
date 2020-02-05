@@ -21,7 +21,7 @@ function inputShowTwo(selector, el) {
     document.querySelector('.inputField2').classList.remove('hide');
 
     submit.onclick = () => {
-        inputBlock.style.top = '-100%';
+        inputBlock.style.top = '-120%';
         let answer = calculate(selector, digit.value, digit2.value);
         document.getElementById(el).textContent = answer;
         digit.value = digit2.value = '';
