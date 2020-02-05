@@ -2,18 +2,23 @@ const inputBlock = document.querySelector('.inputField');
 const submit = document.getElementById('submit');
 const digit = document.querySelector('.inputField1');
 const digit2 = document.querySelector('.inputField2');
+const close = document.querySelector('.close');
+
 
 function inputShowOne(selector, el) {
     inputBlock.style.top = '0%';
     document.querySelector('.inputField2').classList.add('hide');
 
     submit.onclick = () => {
-        inputBlock.style.top = '-100%';
+        inputBlock.style.top = '-130%';
         let answer = calculate(selector, digit.value, digit2.value);
         document.getElementById(el).textContent = answer;
         digit.value = digit2.value = '';
     };
 }
+close.addEventListener('click', ()=> {
+    inputBlock.style.top = '-130%';
+})
 
 
 function inputShowTwo(selector, el) {
@@ -21,7 +26,7 @@ function inputShowTwo(selector, el) {
     document.querySelector('.inputField2').classList.remove('hide');
 
     submit.onclick = () => {
-        inputBlock.style.top = '-120%';
+        inputBlock.style.top = '-130%';
         let answer = calculate(selector, digit.value, digit2.value);
         document.getElementById(el).textContent = answer;
         digit.value = digit2.value = '';

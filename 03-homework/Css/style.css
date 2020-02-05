@@ -127,6 +127,19 @@ body {
     right: 10px;
     color: white;
 }
+.close {
+    color: white;
+    background: transparent;
+    border: 0;
+    font-size: 2em;
+    position: absolute;
+    top: 2em;
+    right: 2em;
+    transition: 0.5s;
+}
+.close:hover {
+    transform: scale(1.5);
+}
 
 @media (max-width: 1200px) {
     .block {
