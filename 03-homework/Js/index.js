@@ -16,9 +16,10 @@ function inputShowOne(selector, el) {
         digit.value = digit2.value = '';
     };
 }
-close.addEventListener('click', ()=> {
+
+close.addEventListener('click', () => {
     inputBlock.style.top = '-130%';
-})
+});
 
 
 function inputShowTwo(selector, el) {
@@ -33,81 +34,83 @@ function inputShowTwo(selector, el) {
     };
 }
 
-
-/*There is my custom dispatcher)) or something like that*/
+/*My custom reducer, or something like that*/
 
 function calculate(selector, value1, value2) {
     let answer;
 
-    if (selector === 'maxDigit') {
-        answer = Math.max.apply(null, value1.toString().split('').map(item => +item));
-        return answer;
-    }
-
-    if (selector === 'power') {
-        const n = Number(value1);
-        const m = Number(value2)
-        answer = n;
-        if (m === 0) {
-            answer = 1;
+    switch (selector) {
+        case 'maxDigit': {
+            answer = Math.max.apply(null, value1.toString().split('').map(item => +item));
+            break;
         }
-        for (let i = 1; i < m; i++) {
-            answer *= n;
+        case 'power': {
+            const n = Number(value1);
+            const m = Number(value2);
+            answer = n;
+            if (m === 0) {
+                answer = 1;
+            }
+            for (let i = 1; i < m; i++) {
+                answer *= n;
+            }
+            break;
         }
-        return answer;
-    }
-
-    if (selector === 'stringFormatting') {
-        let temp = value1.toLowerCase();
-        answer = temp.charAt(0).toUpperCase() + temp.substring(1);
-        return answer;
-    }
-    if (selector === 'remainingSalary') {
-        let temp = Number(value1);
-        answer = (temp - temp * 0.195.toFixed(3));
-        return answer;
-    }
-    if (selector === 'getRandomNumber') {
-        let n = Number(value1);
-        let m = Number(value2);
-        answer = Math.floor(n + Math.random() * (m + 1 - n));
-        return answer;
-    }
-    if (selector === 'countLetter') {
-        answer = 0;
-        value2.toLowerCase().split('').find(a => {
-            a === value1 && answer++;
-        });
-        return answer;
-    }
-    if (selector === 'convertCurrency') {
-        const rate = 25;
-
-        value1[value1.length - 1] === '$'
-            ? answer = parseInt(value1.substring(0, value1.length - 1)) * rate + ' UAH'
-            : answer = parseInt(value1.substring(0, value1.length - 3)) / rate + ' $';
-
-        return answer;
-    }
-    if (selector === 'getRandomPassword') {
-        answer = '';
-        for (let i = 0; i < Number(value1); i++) {
-            let temp = Math.floor(1 + Math.random() * (9 - 1));
-            answer += temp;
+        case 'stringFormatting': {
+            let temp = value1.toLowerCase();
+            answer = temp.charAt(0).toUpperCase() + temp.substring(1);
+            break;
         }
-        return answer;
+        case 'remainingSalary': {
+            let temp = Number(value1);
+            answer = (temp - temp * 0.195.toFixed(3));
+        }
+        case 'getRandomNumber': {
+            let n = Number(value1);
+            let m = Number(value2);
+            answer = Math.floor(n + Math.random() * (m + 1 - n));
+            break;
+        }
+        case 'countLetter': {
+            answer = 0;
+            value2.toLowerCase().split('').find(a => {
+                a === value1 && answer++;
+            });
+            break;
+        }
+        case 'convertCurrency': {
+            const rate = 25;
+            value1[value1.length - 1] === '$'
+                ? answer = parseInt(value1.substring(0, value1.length - 1)) * rate + ' UAH'
+                : answer = parseInt(value1.substring(0, value1.length - 3)) / rate + ' $';
+            break;
+        }
+        case 'getRandomPassword': {
+            answer = '';
+            for (let i = 0; i < Number(value1); i++) {
+                let temp = Math.floor(1 + Math.random() * (9 - 1));
+                answer += temp;
+            }
+            break;
+        }
+        case 'deleteLetters': {
+            answer = value2.toLowerCase().split('').filter(item => item !== value1).join('');
+            break;
+
+        }
+        case 'isPalyndrom': {
+            const temp = value1.toLowerCase();
+            answer = temp === temp.split('').reverse().join('');
+            break;
+        }
+        case 'deleteDuplicateLetter': {
+            answer = value1.split('').filter((el, i, arr) => {
+                return arr.indexOf(el) === arr.lastIndexOf(el)
+            }).join('');
+            break;
+        }
+
     }
-    if (selector === 'deleteLetters') {
-        return value2.toLowerCase().split('').filter(item=>item!==value1).join('');
-    }
-    if (selector === 'isPalyndrom') {
-        const temp = value1.toLowerCase();
-        return temp===temp.split('').reverse().join('');
-    }
-    if (selector === 'deleteDuplicateLetter') {
-        answer = value1.split('').filter((el, i, arr)=> {
-            return arr.indexOf(el)===arr.lastIndexOf(el)
-        }).join('');
-       return answer;
-    }
+
+    return answer;
 }
