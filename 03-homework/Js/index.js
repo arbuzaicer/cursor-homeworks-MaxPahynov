@@ -11,7 +11,7 @@ function inputShowOne(selector, el) {
 
     submit.onclick = () => {
         inputBlock.style.top = '-130%';
-        let answer = calculate(selector, digit.value, digit2.value);
+        const answer = calculate(selector, digit.value, digit2.value);
         document.getElementById(el).textContent = answer;
         digit.value = digit2.value = '';
     };
@@ -28,7 +28,7 @@ function inputShowTwo(selector, el) {
 
     submit.onclick = () => {
         inputBlock.style.top = '-130%';
-        let answer = calculate(selector, digit.value, digit2.value);
+        const answer = calculate(selector, digit.value, digit2.value);
         document.getElementById(el).textContent = answer;
         digit.value = digit2.value = '';
     };
@@ -57,17 +57,17 @@ function calculate(selector, value1, value2) {
             break;
         }
         case 'stringFormatting': {
-            let temp = value1.toLowerCase();
+            const temp = value1.toLowerCase();
             answer = temp.charAt(0).toUpperCase() + temp.substring(1);
             break;
         }
         case 'remainingSalary': {
-            let temp = Number(value1);
+            const temp = Number(value1);
             answer = (temp - temp * 0.195.toFixed(3));
         }
         case 'getRandomNumber': {
-            let n = Number(value1);
-            let m = Number(value2);
+            const n = Number(value1);
+            const m = Number(value2);
             answer = Math.floor(n + Math.random() * (m + 1 - n));
             break;
         }
@@ -88,7 +88,7 @@ function calculate(selector, value1, value2) {
         case 'getRandomPassword': {
             answer = '';
             for (let i = 0; i < Number(value1); i++) {
-                let temp = Math.floor(1 + Math.random() * (9 - 1));
+                const temp = Math.floor(1 + Math.random() * (9 - 1));
                 answer += temp;
             }
             break;
