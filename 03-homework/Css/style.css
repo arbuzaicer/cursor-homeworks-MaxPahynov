@@ -94,9 +94,10 @@ body {
     flex-direction: column;
     align-items: center;
     z-index: 999;
+    color: white;
+    font-size: 1.8em;
 }
 .field {
-    margin-bottom: 1em;
     width: 30%;
     height: 3em;
     background: black;
@@ -104,12 +105,19 @@ body {
     color: white;
     padding: 0 1em;
     font-family: 'Neucha', cursive;
-    font-size: 1.8em;
     transition: 0.5s;
+    margin-bottom: 1em;
 }
 .field:focus {
     border: 2px solid white;
     box-shadow: 6px 5px 9px white;
+}
+
+.description {
+    margin-bottom: 1em;
+    font-size: 1.2em;
+    width: 65%;
+    text-align: center;
 }
 
 .answer {

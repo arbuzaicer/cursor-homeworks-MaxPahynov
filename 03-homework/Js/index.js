@@ -4,10 +4,15 @@ const digit = document.querySelector('.inputField1');
 const digit2 = document.querySelector('.inputField2');
 const close = document.querySelector('.close');
 
+/*Functions section*/
 
-function inputShowOne(selector, el) {
+function inputShowOne(selector, el, description) {
+    if(document.querySelector('.description')) {
+        document.querySelector('.description').remove();
+    }
     inputBlock.style.top = '0%';
     document.querySelector('.inputField2').classList.add('hide');
+    inputBlock.insertAdjacentHTML("afterbegin", description);
 
     submit.onclick = () => {
         inputBlock.style.top = '-130%';
@@ -21,10 +26,13 @@ close.addEventListener('click', () => {
     inputBlock.style.top = '-130%';
 });
 
-
-function inputShowTwo(selector, el) {
+function inputShowTwo(selector, el, description) {
+    if(document.querySelector('.description')) {
+        document.querySelector('.description').remove();
+    }
     inputBlock.style.top = '0%';
     document.querySelector('.inputField2').classList.remove('hide');
+    inputBlock.insertAdjacentHTML("afterbegin", description);
 
     submit.onclick = () => {
         inputBlock.style.top = '-130%';
