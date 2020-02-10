@@ -1,4 +1,3 @@
-/*Reducer or something like that*/
 function calculate(selector, value1, value2) {
     let answer;
     switch (selector) {
