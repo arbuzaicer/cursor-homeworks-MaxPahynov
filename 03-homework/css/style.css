@@ -155,7 +155,7 @@ body {
     }
 }
 @media (max-width: 980px) {
-    .functionDescription  {
+    .function-description  {
         width: 65%;
     }
 }
