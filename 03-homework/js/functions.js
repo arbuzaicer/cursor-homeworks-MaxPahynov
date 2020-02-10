@@ -1,5 +1,3 @@
-/*Functions section*/
-
 function getMaxValue(value1) {
     let answer;
     answer = Math.max.apply(null, value1.toString().split('').map(item => +item));
