@@ -1,51 +1,38 @@
-function calculate(selector, value1, value2) {
-    let answer;
+function calculate(selector, inp1, inp2) {
     switch (selector) {
         case 'maxDigit': {
-            answer = getMaxValue(value1);
-            break;
+            return getMaxValue(inp1);
         }
         case 'power': {
-            answer = power(value1, value2);
-            break;
+            return power(inp1, inp2);
         }
         case 'stringFormatting': {
-            answer = stringFormatting(value1);
-            break;
+            return stringFormatting(inp1);
         }
         case 'remainingSalary': {
-            answer = remainingSalary(value1);
-            break;
+            return remainingSalary(inp1);
         }
         case 'getRandomNumber': {
-            answer = getRandomNumber(value1, value2);
-            break;
+            return getRandomNumber(inp1, inp2);
         }
         case 'countLetter': {
-            answer = countLetter(value1, value2);
-            break;
+            return countLetter(inp1, inp2);
         }
         case 'convertCurrency': {
-            answer = convertCurrency(value1);
-            break;
+            return convertCurrency(inp1);
         }
         case 'getRandomPassword': {
-            answer = getRandomPassword(value1);
-            break;
+            return getRandomPassword(inp1);
         }
         case 'deleteLetters': {
-            answer = deleteLetters(value1, value2);
-            break;
+            return deleteLetters(inp1, inp2);
 
         }
         case 'isPalyndrom': {
-            answer = isPalyndrom(value1);
-            break;
+            return isPalyndrom(inp1);
         }
         case 'deleteDuplicateLetter': {
-            answer = deleteDuplicateLetter(value1);
-            break;
+            return deleteDuplicateLetter(inp1);
         }
     }
-    return answer;
 }

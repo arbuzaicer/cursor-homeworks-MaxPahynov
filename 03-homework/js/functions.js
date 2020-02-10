@@ -1,88 +1,119 @@
-function getMaxValue(value1) {
-    let answer;
-    answer = Math.max.apply(null, value1.toString().split('').map(item => +item));
-    return answer;
+/*Function 1 - Создать функцию getMaxDigit(number) – которая получает любое число и выводит самую большую цифру в этом числе. Примеры: 1236 -> 6, 987 -> 9, 385 -> 8*/
+
+function getMaxValue(value) {
+    if(isNaN(value)) {
+        return 'Ви ввели хибне значення';
+    }
+    return Math.max.apply(null, value.toString().split('').map(item => Number(item)));
 }
 
-function power(value1, value2) {
-    let answer;
-    const n = Number(value1);
-    const m = Number(value2);
-    answer = n;
+/*Function 2  - Создать функцию, которая вычисляет степень числа. Не используя Math.pow и **. Используйте цикл*/
+
+function power(num,pow) {
+    let result;
+    const n = Number(num);
+    const m = Number(pow);
+    if(isNaN(num) || isNaN(pow)) {
+        return 'Ви ввели хибні значення';
+    }
+    result = n;
     if (m === 0) {
-        answer = 1;
+        result = 1;
     }
     for (let i = 1; i < m; i++) {
-        answer *= n;
+        result *= n;
     }
-    return answer;
+    return result;
 }
 
-function stringFormatting(value1) {
-    let answer;
-    answer = value1.charAt(0).toUpperCase() + value1.substring(1);
-    return answer;
+/*Function 3 - Создать функцию, которая форматирует имя, делая первую букву заглавной. ("влад" -> "Влад", "вЛАД" -> "Влад" и так далее);*/
+
+function stringFormatting(str) {
+    return str.charAt(0).toUpperCase() + str.substring(1).toLowerCase();
 }
 
-function remainingSalary(value1) {
-    let answer;
-    const temp = Number(value1);
-    answer = (temp - temp * 0.195.toFixed(3));
-    return answer;
+/*Function 4 - Создать функцию, которая вычисляет сумму оставшуюся после оплаты налога от заработной платы. (Налог = 18% + 1.5% -> 19.5%). Пример: 1000 -> 805*/
+
+function remainingSalary(value) {
+    const temp = Number(value);
+    const taxes = 19.5/100;
+    if(isNaN(Number(temp))){
+       return 'Ви ввели хибне значення';
+    }
+    return (temp - temp * taxes).toFixed(2);
 }
 
-function getRandomNumber(value1, value2) {
-    let answer;
-    const n = Number(value1);
-    const m = Number(value2);
-    answer = Math.floor(n + Math.random() * (m + 1 - n));
-    return answer;
+/*Function 5 - Создать функцию, которая возвращает случайное целое число в диапазоне от N до M. Пример: getRandomNumber(1, 10) -> 5*/
+
+function getRandomNumber(startValue, endValue) {
+    const n = Number(startValue);
+    const m = Number(endValue);
+    if(isNaN(n) || isNaN(m)) {
+        return 'Ви ввели хибні значення';
+    }
+    return Math.floor(n + Math.random() * (m + 1 - n));
 }
 
-function countLetter(value1, value2) {
-    let answer = 0;
-    value2.toLowerCase().split('').find(a => {
-        a === value1 && answer++;
+/*Function 6 - Создать функцию, которая считает сколько раз определенная буква повторяется в слове. Пример: countLetter("а", "Асталависта") -> 4*/
+
+function countLetter(letter, str) {
+    let result = 0;
+    str.toLowerCase().split('').find(a => {
+        if(a === letter) {
+            result++;
+        }
     });
-    return answer;
+    return result;
 }
 
-function convertCurrency(value1) {
-    let answer;
+/*Function 7 - Создайте функцию конвертиующую доллары в гривны и наоборот в зависимости от наличия символа $ или UAH в строке. Пример: convertCurrency("100$") -> 2500 грн. или convertCurrency("2500UAH") -> 100$
+Учтите, другие валюты не конвертируются, нужно выводить ошибку, а так же регистр uah не имеет значения.*/
+
+function convertCurrency(value) {
     const rate = 25;
-    value1[value1.length - 1] === '$'
-        ? answer = parseInt(value1.substring(0, value1.length - 1)) * rate + ' UAH'
-        : answer = parseInt(value1.substring(0, value1.length - 3)) / rate + ' $';
-    return answer;
-}
-
-function getRandomPassword(value1) {
-    let answer = '';
-    for (let i = 0; i < Number(value1); i++) {
-        const temp = Math.floor(1 + Math.random() * (9 - 1));
-        answer += temp;
+    if(value[value.length - 1] === '$') {
+        return parseInt(value.substring(0, value.length - 1)) * rate + ' UAH';
     }
-    return answer;
+    if(value.substring(value.length - 3).toLowerCase() === 'uah') {
+       return parseInt(value.substring(0, value.length - 3)) / rate + ' $';
+    }
+    else {
+        return 'Не валідна валюта'
+    }
 }
 
-function deleteLetters(value1, value2) {
-    let answer;
-    answer = value2.toLowerCase().split('').filter(item => item !== value1).join('');
-    return answer;
+/*Function 8 - Создайте функцию генерации случайного пароля (только числа), длинна устанавливается пользователем или по умолчанию = 8 символам.
+Пример: getRandomPassword(4) -> 1875, getRandomPassword() -> 87240124*/
 
+function getRandomPassword(length) {
+    if (isNaN(length)) {
+        return 'Ви ввели хибне значення';
+    }
+    let result = '';
+    for (let i = 0; i < Number(length); i++) {
+        const temp = Math.floor(1 + Math.random() * (9 - 1));
+        result += temp;
+    }
+    return result;
 }
 
-function isPalyndrom(value1) {
-    let answer;
-    const temp = value1.toLowerCase();
-    answer = temp === temp.split('').reverse().join('');
-    return answer;
+/*Function 9 - Создайте функцию, которая удаляет все буквы из предложения. Пример: deleteLetters('a', "blablabla") -> "blblbl"*/
+
+function deleteLetters(letter, str) {
+    return str.toLowerCase().split('').filter(item => item !== letter).join('');
 }
 
-function deleteDuplicateLetter(value1) {
-    let answer;
-    answer = value1.split('').filter((el, i, arr) => {
+/*Function 10 - Создайте функцию, которая проверяет является ли слово палиндромом. Пример: isPalyndrom("мадам") -> true, isPalyndrom("кокос") -> false, isPalyndrom("Аргентина манит негра") -> true*/
+
+function isPalyndrom(str) {
+    const temp = str.toLowerCase();
+    return temp === temp.split('').reverse().join('');
+}
+
+/*Function 11 - Создайте функцию, которая удалит из предложения буквы, которые встречаются более 1 раза. Пример: deleteDuplicateLetter("Бисквит был очень нежный") -> "сквтлчьжй"*/
+
+function deleteDuplicateLetter(str) {
+    return str.toLowerCase().split('').filter((el, i, arr) => {
         return arr.indexOf(el) === arr.lastIndexOf(el)
     }).join('');
-    return answer;
 }
