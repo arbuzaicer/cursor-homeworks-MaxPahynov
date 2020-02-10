@@ -1,9 +1,6 @@
 /*Function 1 - Создать функцию getMaxDigit(number) – которая получает любое число и выводит самую большую цифру в этом числе. Примеры: 1236 -> 6, 987 -> 9, 385 -> 8*/
 
 function getMaxValue(value) {
-    if(isNaN(value)) {
-        return 'Ви ввели хибне значення';
-    }
     return Math.max.apply(null, value.toString().split('').map(item => Number(item)));
 }
 
@@ -13,9 +10,6 @@ function power(num,pow) {
     let result;
     const n = Number(num);
     const m = Number(pow);
-    if(isNaN(num) || isNaN(pow)) {
-        return 'Ви ввели хибні значення';
-    }
     result = n;
     if (m === 0) {
         result = 1;
@@ -37,9 +31,6 @@ function stringFormatting(str) {
 function remainingSalary(value) {
     const temp = Number(value);
     const taxes = 19.5/100;
-    if(isNaN(Number(temp))){
-       return 'Ви ввели хибне значення';
-    }
     return (temp - temp * taxes).toFixed(2);
 }
 
@@ -48,9 +39,6 @@ function remainingSalary(value) {
 function getRandomNumber(startValue, endValue) {
     const n = Number(startValue);
     const m = Number(endValue);
-    if(isNaN(n) || isNaN(m)) {
-        return 'Ви ввели хибні значення';
-    }
     return Math.floor(n + Math.random() * (m + 1 - n));
 }
 
@@ -86,9 +74,6 @@ function convertCurrency(value) {
 Пример: getRandomPassword(4) -> 1875, getRandomPassword() -> 87240124*/
 
 function getRandomPassword(length) {
-    if (isNaN(length)) {
-        return 'Ви ввели хибне значення';
-    }
     let result = '';
     for (let i = 0; i < Number(length); i++) {
         const temp = Math.floor(1 + Math.random() * (9 - 1));
