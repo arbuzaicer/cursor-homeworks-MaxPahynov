@@ -1,7 +1,7 @@
-const inputBlock = document.querySelector('.inputField');
+const inputBlock = document.querySelector('.input-field');
 const submit = document.getElementById('submit');
-const digit = document.querySelector('.inputField1');
-const digit2 = document.querySelector('.inputField2');
+const digit = document.querySelector('.input-field__el1');
+const digit2 = document.querySelector('.input-field__el2');
 const close = document.querySelector('.close');
 
 /*Functions section*/
@@ -11,7 +11,7 @@ function inputShowOne(selector, el, description) {
         document.querySelector('.description').remove();
     }
     inputBlock.style.top = '0%';
-    document.querySelector('.inputField2').classList.add('hide');
+    document.querySelector('.input-field__el2').classList.add('hidden');
     inputBlock.insertAdjacentHTML("afterbegin", description);
 
     submit.onclick = () => {
@@ -31,7 +31,7 @@ function inputShowTwo(selector, el, description) {
         document.querySelector('.description').remove();
     }
     inputBlock.style.top = '0%';
-    document.querySelector('.inputField2').classList.remove('hide');
+    document.querySelector('.input-field__el2').classList.remove('hidden');
     inputBlock.insertAdjacentHTML("afterbegin", description);
 
     submit.onclick = () => {
@@ -41,8 +41,6 @@ function inputShowTwo(selector, el, description) {
         digit.value = digit2.value = '';
     };
 }
-
-/*My custom reducer, or something like that*/
 
 function calculate(selector, value1, value2) {
     let answer;

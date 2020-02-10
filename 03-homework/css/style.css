@@ -22,7 +22,7 @@ body {
     padding: 15px 0;
 }
 
-.functionDescription {
+.function-description {
     padding: 0 1em;
     width: 70%;
 }
@@ -77,11 +77,11 @@ body {
     border-bottom: 1px dotted white;
 }
 
-.hide {
+.hidden {
     display: none;
 }
 
-.inputField {
+.input-field {
     position: fixed;
     width: 100vw;
     height: 100vh;
