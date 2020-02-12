@@ -76,7 +76,7 @@ getDividedByFiveBtn.addEventListener('click', () => {
 replaceBadWordsBtn.addEventListener('click', () => {
     show();
     createOneInput(replaceBadWords,
-        'Введіть через кому довільну кількість цифр',
+        'Введіть будь яку фразу з поганим словом...',
         document.getElementById('content-section__8'),
         document.getElementById('result-block__8'),
         false);
@@ -85,7 +85,7 @@ replaceBadWordsBtn.addEventListener('click', () => {
 divideByThreeBtn.addEventListener('click', () => {
     show();
     createOneInput(divideByThree,
-        'Введіть через кому довільну кількість цифр',
+        'Введіть будь-яке число або фразу',
         document.getElementById('content-section__9'),
         document.getElementById('result-block__9'),
         false);
@@ -94,7 +94,7 @@ divideByThreeBtn.addEventListener('click', () => {
 generateCombinationsBtn.addEventListener('click', () => {
     show();
     createOneInput(generateCombinations,
-        'Введіть через кому довільну кількість цифр',
+        'Введіть будь-яке слово...',
         document.getElementById('content-section__10'),
         document.getElementById('result-block__10'),
         false);
