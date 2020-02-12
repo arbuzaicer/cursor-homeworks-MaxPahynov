@@ -1,81 +1,202 @@
-const getRandomArray = (length, min, max) => {
-    let tempArr = [];
-    for (let i = 0; i < length; i++) {
-        tempArr.push(generatedRandomValue(min, max));
-    }
-    return tempArr;
-};
+/*Buttons initializing*/
 
-const getModa = (...numbers) => {
-    let tempArr = [];
-    let count = 0;
-    const filteredPrime = isPrime(numbers).sort((a, b) => a - b);
+const inputField = document.querySelector('.input-field');
+const getRandomArrayBtn = document.getElementById('getRandomArray');
+const getModaBtn = document.getElementById('getModa');
+const getAverageBtn = document.getElementById('getAverage');
+const getMedianBtn = document.getElementById('getMedian');
+const filterEvenNumbersBtn = document.getElementById('filterEvenNumbers');
+const countPositiveNumbersBtn = document.getElementById('countPositiveNumbers');
+const getDividedByFiveBtn = document.getElementById('getDividedByFive');
+const replaceBadWordsBtn = document.getElementById('replaceBadWords');
+const divideByThreeBtn = document.getElementById('divideByThree');
+const generateCombinationsBtn = document.getElementById('generateCombinations');
 
-    for (let i = 0; i < filteredPrime.length; i++) {
-        if (filteredPrime[i] === filteredPrime[i + 1]) {
-            count++;
-        } else {
-            tempArr.push([filteredPrime[i], count]);
-            count = 0;
-        }
-    }
-    tempArr = tempArr.sort((a, b) => b[1] - a[1]);
-    for (let i = 0; i < tempArr.length; i++) {
-        if (tempArr[i][1] !== tempArr[i + 1][1]) {
-            return tempArr[i][0];
-        } else {
-            return [tempArr[i][0], tempArr[i + 1][0]];
-        }
-    }
-};
+/*Handlers functions*/
 
-const getAverage = (...numbers) => {
-    const filteredPrime = isPrime(numbers);
-    return filteredPrime.reduce((sum, cur) => sum + cur, 0) / filteredPrime.length;
-};
+getRandomArrayBtn.addEventListener('click', () => {
+    show();
+    createThreeInput();
+});
 
-const getMedian = (...numbers) => {
-    const filteredPrime = isPrime(numbers).sort((a, b) => a - b);
-    return filteredPrime.length % 2 !== 0 ? filteredPrime[Math.floor(filteredPrime.length / 2)] : (filteredPrime[filteredPrime.length / 2 - 1] + filteredPrime[filteredPrime.length / 2]) / 2;
+getModaBtn.addEventListener('click', () => {
+    show();
+    createOneInput(getModa,
+        'Введіть через кому довільну кількість цифр',
+        document.getElementById('content-section__2'),
+        document.getElementById('result-block__2'),
+        true);
+});
 
-};
+getAverageBtn.addEventListener('click', () => {
+    show();
+    createOneInput(getAverage,
+        'Введіть через кому довільну кількість цифр',
+        document.getElementById('content-section__3'),
+        document.getElementById('result-block__3'),
+        true);
+});
 
-const filterEvenNumbers = (...numbers) => {
-    const filteredPrime = isPrime(numbers);
-    return filteredPrime.filter(el => el % 2 !== 0)
-};
+getMedianBtn.addEventListener('click', () => {
+    show();
+    createOneInput(getMedian,
+        'Введіть через кому довільну кількість цифр',
+        document.getElementById('content-section__4'),
+        document.getElementById('result-block__4'),
+        true);
+});
 
-const countPositiveNumbers = (...numbers) => {
-    const filteredPrime = isPrime(numbers);
-    return filteredPrime.filter(el => el >= 0).length;
-};
+filterEvenNumbersBtn.addEventListener('click', () => {
+    show();
+    createOneInput(filterEvenNumbers,
+        'Введіть через кому довільну кількість цифр',
+        document.getElementById('content-section__5'),
+        document.getElementById('result-block__5'),
+        true);
+});
 
-const getDividedByFive = (...numbers) => {
-    const filteredPrime = isPrime(numbers);
-    return filteredPrime.filter(el => el % 5 === 0)
-};
+countPositiveNumbersBtn.addEventListener('click', () => {
+    show();
+    createOneInput(countPositiveNumbers,
+        'Введіть через кому довільну кількість цифр',
+        document.getElementById('content-section__6'),
+        document.getElementById('result-block__6'),
+        true);
+});
 
-const replaceBadWords = (str) => {
-    const badWords = ['shit', 'fuck'];
-    return str.split(' ').map(el => {
-        return badWords.some(data => {
-            if (el.includes(data)) {
-                return el.replace(data, '****')
-            }
-        })
-    }).join(' ');
-};
+getDividedByFiveBtn.addEventListener('click', () => {
+    show();
+    createOneInput(getDividedByFive,
+        'Введіть через кому довільну кількість цифр',
+        document.getElementById('content-section__7'),
+        document.getElementById('result-block__7'),
+        true);
+});
 
-/*-------------------------------------------Additional functions-----------------------------------------------------*/
-const isPrime = (arr) => {
-    return arr.filter(item => {
-        return !item.toString().includes('.')
-    }).map(el => Number(el));
-};
+replaceBadWordsBtn.addEventListener('click', () => {
+    show();
+    createOneInput(replaceBadWords,
+        'Введіть через кому довільну кількість цифр',
+        document.getElementById('content-section__8'),
+        document.getElementById('result-block__8'),
+        false);
+});
 
-const generatedRandomValue = (minValue, maxValue) => {
-    return Math.floor(Math.random() * (maxValue + 1 - minValue) + minValue)
-};
+divideByThreeBtn.addEventListener('click', () => {
+    show();
+    createOneInput(divideByThree,
+        'Введіть через кому довільну кількість цифр',
+        document.getElementById('content-section__9'),
+        document.getElementById('result-block__9'),
+        false);
+});
 
+generateCombinationsBtn.addEventListener('click', () => {
+    show();
+    createOneInput(generateCombinations,
+        'Введіть через кому довільну кількість цифр',
+        document.getElementById('content-section__10'),
+        document.getElementById('result-block__10'),
+        false);
+});
 
-console.log(replaceBadWords("Are you fucking kidding?"));
+/*Create elements section*/
+
+function createOneInput(func, placeholder, el, el2, flag) {
+    const inputSection = document.createElement('div');
+    inputSection.classList.add('input-section');
+    const input = document.createElement('input');
+    input.placeholder = placeholder;
+    input.classList.add('input-arguments');
+
+    const calculateBtn = document.createElement('button');
+    calculateBtn.textContent = 'Розрахувати';
+    calculateBtn.classList.add('btn-calculate');
+
+    inputSection.appendChild(input);
+    inputSection.appendChild(calculateBtn);
+    inputField.appendChild(inputSection);
+
+    calculateBtn.addEventListener('click', () => {
+        el2.innerHTML = '';
+        const inputResult = flag === true ? input.value.split(',').map(item => Number(item)) : input.value;
+        const description = document.createElement('p');
+        description.textContent = `Для розрахунку введено дані: ${inputResult}`;
+        const result = document.createElement('p');
+        result.textContent = `Результат: ${func(inputResult)}`;
+        result.classList.add('result');
+        el2.appendChild(description);
+        el2.appendChild(result);
+        inputSection.innerHTML = '';
+        hide();
+    })
+}
+
+function createThreeInput() {
+    const inputSection = document.createElement('div');
+    inputSection.classList.add('input-section');
+
+    const input1 = document.createElement('input');
+    input1.placeholder = 'Введіть довжину масиву';
+    input1.classList.add('input-arguments');
+
+    const input2 = document.createElement('input');
+    input2.placeholder = 'Мінімальне значення інтервалу';
+    input2.classList.add('input-arguments');
+
+    const input3 = document.createElement('input');
+    input3.placeholder = 'Максимальне значення інтервалу';
+    input3.classList.add('input-arguments');
+
+    const calculateBtn = document.createElement('button');
+    calculateBtn.textContent = 'Розрахувати';
+    calculateBtn.classList.add('btn-calculate');
+
+    inputSection.appendChild(input1);
+    inputSection.appendChild(input2);
+    inputSection.appendChild(input3);
+    inputSection.appendChild(calculateBtn);
+    inputField.appendChild(inputSection);
+
+    calculateBtn.addEventListener('click', () => {
+        document.getElementById('result-block__1').innerHTML = '';
+        const description = document.createElement('p');
+        description.textContent = `Для розрахунку введено дані: 
+        довжина масиву ${input1.value};
+        мін. значення ${input2.value};
+        макс. значення ${input3.value}`;
+        const result = document.createElement('p');
+        result.classList.add('result');
+        result.textContent = `Результат: [${getRandomArray(Number(input1.value), Number(input2.value), Number(input3.value))}]`;
+        document.getElementById('result-block__1').appendChild(description);
+        document.getElementById('result-block__1').appendChild(result);
+        inputSection.innerHTML = '';
+        hide();
+    })
+}
+
+/*Input Field Section Handlers*/
+function hide() {
+    inputField.style.top = '-200%';
+}
+
+function show() {
+    inputField.style.top = '0';
+    clear();
+    addCloseBtn();
+}
+
+function clear() {
+    inputField.innerHTML = '';
+}
+
+function addCloseBtn() {
+    const closeBtn = document.createElement('button');
+    closeBtn.classList.add('close');
+    closeBtn.textContent = 'close';
+    inputField.appendChild(closeBtn);
+
+    closeBtn.addEventListener('click', () => {
+        hide()
+    })
+}

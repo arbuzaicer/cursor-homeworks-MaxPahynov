@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-family: 'Comfortaa', cursive;
+}
+
+body {
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+}
+
+.lesson-name {
+    position: fixed;
+    top: 20px;
+    left: 40px;
+    color: white;
+    font-size: 2em;
+
+}
+
+.functions {
+    width: 1100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-column-gap: 15px;
+    grid-row-gap: 100px;
+    margin: 0 auto;
+}
+
+.functions-container {
+    margin-bottom: 100px;
+}
+
+.content, .functions-container {
+    position: relative;
+    width: 350px;
+    height: 600px;
+    background: transparent;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content p {
+    padding: 10px 20px;
+    text-align: justify;
+}
+
+.functions-container:hover {
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
+}
+
+.functions .functions-container .function-single {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.functions .functions-container .function-single.function-single__section2 {
+    box-sizing: border-box;
+    text-align: center;
+    background: linear-gradient(to right, #127d7d, #316f40);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.functions .functions-container .function-single.function-single__section2 h2 {
+    margin-top: 60px;
+}
+
+.functions .functions-container .function-single.function-single__section1 {
+    background: #013d4a;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.functions .functions-container .function-single.function-single__section1 h2 {
+    color: #fff;
+    font-size: 4em;
+    margin-top: 10px;
+}
+
+.functions .functions-container:hover .function-single.function-single__section1 {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent;
+    border: 3px solid #013d4a;
+}
+
+.functions .functions-container:hover .function-single.function-single__section1 h2 {
+    color: #fff;
+}
+
+.btn {
+    width: 180px;
+    height: 60px;
+    border: none;
+    margin-top: 30px;
+    background: rgba(0, 0, 0, 0.11);
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 700;
+    transition: 0.5s;
+}
+
+.btn:hover, .btn-calculate:hover {
+    background: rgba(0, 0, 0, 0.36);
+    transform: scale(1.1);
+    border: 2px solid #013d4a;
+}
+
+.designed {
+    position: fixed;
+    bottom: 10px;
+    right: 25px;
+    color: white;
+    font-style: italic;
+    font-size: 1em;
+}
+
+.input-field {
+    width: 100vw;
+    height: 100vh;
+    top: -200%;
+    transition: 1.2s;
+    background: rgba(0, 0, 0, 0.42);
+    background-size: cover;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-size: 1.8em;
+}
+
+.close {
+    color: white;
+    background: transparent;
+    border: 0;
+    font-size: 1.2em;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    transition: 0.5s;
+}
+
+.close:hover {
+    transform: scale(1.5);
+}
+
+/*JS styles*/
+
+.input-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-arguments {
+    width: 340px;
+    height: 40px;
+    padding: 0 5px;
+    color: #fff;
+    background: #00000070;
+    border: 1px solid #013d4a;
+    margin-bottom: 10px;
+    transition: 0.5s;
+}
+
+.input-arguments:focus {
+    box-shadow: 7px 8px 10px black;
+    border: 1px solid #63e1ff;
+}
+
+.btn-calculate {
+    width: 250px;
+    height: 60px;
+    border: 1px solid #013d4a;
+    margin-top: 30px;
+    background: rgba(0, 0, 0, 0.11);
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 700;
+    transition: 0.5s;
+}
+
+.result-section {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.result {
+    font-size: 1.4em;
+    color: #03d800;
+    font-weight: 900;
+}

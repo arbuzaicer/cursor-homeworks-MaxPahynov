@@ -4,9 +4,173 @@
     <meta charset="UTF-8">
     <title>HW#5 - Arrays. Pashynov M.</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
 </head>
 <body>
+<div class="lesson-name">
+    <p>Homework #5 - arrays.</p>
+</div>
+<section class="functions">
 
+    <div class="functions-container">
+        <div class="function-single function-single__section2">
+            <div class="content" id="content-section__1">
+                <h2>Функція getRandomArray</h2>
+                <p>Повертає масив випадкових цілих чисел. У функції є параметри: <strong>length</strong> - довжина масиву,
+                    <strong>min</strong> - мінімальне значення цілого числа, <strong>max</strong> - максимальне значення цілого числа.</p>
+                <button id="getRandomArray" class="btn">Calculate</button>
+            </div>
+            <div class="result-section" id="result-block__1"></div>
+        </div>
+        <div id="card-section__1" class="function-single function-single__section1">
+            <h2>01</h2>
+        </div>
+    </div>
+
+    <div class="functions-container">
+        <div class="function-single function-single__section2">
+            <div class="content" id="content-section__2">
+                <h2>Функція getModa</h2>
+                <p>Обчислює моду всіх переданих в неї аргументів. Нецілі ЧИСЛА ігноруються. Приклад передачі аргументів:
+                    (6, 2, 55, 11, 78, 2).</p>
+                <button id="getModa" class="btn">Calculate</button>
+            </div>
+            <div class="result-section" id="result-block__2"></div>
+        </div>
+        <div id="card-section__2" class="function-single function-single__section1">
+            <h2>02</h2>
+        </div>
+    </div>
+
+    <div class="functions-container">
+        <div class="function-single function-single__section2">
+            <div class="content" id="content-section__3">
+                <h2>Функція getAverage</h2>
+                <p>Обчислює середнє арифметичне всіх переданих в неї аргументів. Нецілі ЧИСЛА ігнорують. Приклад передачі аргументів:
+                    (6, 2, 55, 11, 78, 2).</p>
+                <button id="getAverage" class="btn">Calculate</button>
+            </div>
+            <div class="result-section" id="result-block__3"></div>
+        </div>
+        <div id="card-section__3" class="function-single function-single__section1">
+            <h2>03</h2>
+        </div>
+    </div>
+
+    <div class="functions-container">
+        <div class="function-single function-single__section2">
+            <div class="content" id="content-section__4">
+                <h2>Функція getMedian</h2>
+                <p>Обчислює медіану всіх переданих в неї аргументів. Нецілі ЧИСЛА ігнорують. Приклад передачі аргументів:
+                    (6, 2, 55, 11, 78, 2).</p>
+                <button id="getMedian" class="btn">Calculate</button>
+            </div>
+            <div class="result-section" id="result-block__4"></div>
+        </div>
+        <div id="card-section__4" class="function-single function-single__section1">
+            <h2>04</h2>
+        </div>
+    </div>
+
+    <div class="functions-container">
+        <div class="function-single function-single__section2">
+            <div class="content" id="content-section__5">
+                <h2>Функція filterEvenNumbers</h2>
+                <p>Фільтрує парні числа передані як аргументи функції. <i>Приклад: </i>filterEvenNumbers(1, 2, 3, 4, 5, 6) -> [1, 3, 5] </p>
+                <button id="filterEvenNumbers" class="btn">Calculate</button>
+            </div>
+            <div class="result-section" id="result-block__5"></div>
+        </div>
+        <div id="card-section__5" class="function-single function-single__section1">
+            <h2>05</h2>
+        </div>
+    </div>
+
+    <div class="functions-container">
+        <div class="function-single function-single__section2">
+            <div class="content" id="content-section__6">
+                <h2>Функція countPositiveNumbers</h2>
+                <p>Знаходить кількість чисел, що більші 0.  <i>Приклад: </i>countPositiveNumbers(1, -2, 3, -4, -5, 6) -> 3</p>
+                <button id="countPositiveNumbers" class="btn">Calculate</button>
+            </div>
+            <div class="result-section" id="result-block__6"></div>
+        </div>
+        <div id="card-section__6" class="function-single function-single__section1">
+            <h2>06</h2>
+        </div>
+    </div>
+
+    <div class="functions-container">
+        <div class="function-single function-single__section2">
+            <div class="content" id="content-section__7">
+                <h2>Функція getDividedByFive</h2>
+                <p>Відфільтрує всі елементи в масиві і залишить тільки ті, які діляться без остачі на 5. <i>Приклад: </i>
+                    getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) -> [55, 55]</p>
+                <button id="getDividedByFive" class="btn">Calculate</button>
+            </div>
+            <div class="result-section" id="result-block__7"></div>
+        </div>
+        <div id="card-section__7" class="function-single function-single__section1">
+            <h2>07</h2>
+        </div>
+    </div>
+
+    <div class="functions-container">
+        <div class="function-single function-single__section2">
+            <div class="content" id="content-section__8">
+                <h2>Функція replaceBadWords</h2>
+                <p>Функція: 1) розіб'є фразу на слова, 2) замінить погані слова на зірочки (*). Погані слова: shit і fuck.
+                    Передбачте можливість розширювати список цих слів в майбутньому.
+                    <i>Приклад: </i> replaceBadWords ("Are you fucking kidding?") -> "Are you **** ing kidding?"</p>
+                <button id="replaceBadWords" class="btn">Calculate</button>
+            </div>
+            <div class="result-section" id="result-block__8"></div>
+        </div>
+        <div id="card-section__8" class="function-single function-single__section1">
+            <h2>08</h2>
+        </div>
+    </div>
+
+    <div class="functions-container">
+        <div class="function-single function-single__section2">
+            <div class="content" id="content-section__9">
+                <h2>Функція divideByThree</h2>
+                <p>Розбиває кожне слово на умовні склади по 3 літери. Якщо букв менше трьох - не розбивати.
+                    Пробіли завжди видаляються. Строка приводиться до нижнього регістру.
+                    <i>Приклад: </i>divideByThree("Commander) -> ["com", "man", "der"]</p>
+                <button id="divideByThree" class="btn">Calculate</button>
+            </div>
+            <div class="result-section" id="result-block__9"></div>
+        </div>
+        <div id="card-section__9" class="function-single function-single__section1">
+            <h2>09</h2>
+        </div>
+    </div>
+
+    <div class="functions-container">
+        <div class="function-single function-single__section2">
+            <div class="content" id="content-section__10">
+                <h2>Функція generateCombinations</h2>
+                <p>Згенерує всі можливі перестановки (унікальні, без повторень) букв в слові. Для тестів не
+                    передавайте слова в яких більше 10 букв. Краще взагалі обмежити роботу функції 10 буквами.
+                    <i>Приклад: </i>generateCombinations("man") -> ["man", "mna", "amn", "anm", "nam", "nma"]</p>
+                <button id="generateCombinations" class="btn">Calculate</button>
+            </div>
+            <div class="result-section" id="result-block__10"></div>
+        </div>
+        <div id="card-section__10" class="function-single function-single__section1">
+            <h2>10</h2>
+        </div>
+    </div>
+</section>
+
+<div class="input-field">
+</div>
+
+<div class="designed">
+    <p>Designed by Pashynov M.</p>
+</div>
 <script src="js/index.js"></script>
+<script src="js/functions.js"></script>
 </body>
 </html>
