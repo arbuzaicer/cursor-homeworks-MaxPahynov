@@ -20,7 +20,7 @@ body {
     left: 40px;
     color: white;
     font-size: 2em;
-
+    z-index: 999;
 }
 
 .functions {
@@ -45,7 +45,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-self: center;
 }
 
 .content p {
