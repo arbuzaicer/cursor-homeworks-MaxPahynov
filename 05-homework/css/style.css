@@ -188,7 +188,7 @@ body {
 }
 
 .input-arguments:focus {
-    box-shadow: 7px 8px 10px black;
+    box-shadow: 3px 4px 10px rgba(255, 255, 255, 0.7);
     border: 1px solid #63e1ff;
 }
 
