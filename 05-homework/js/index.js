@@ -127,6 +127,7 @@ function createOneInput(func, placeholder, el, el2, flag) {
         result.classList.add('result');
         el2.appendChild(description);
         el2.appendChild(result);
+        successCalculation();
         inputSection.innerHTML = '';
         hide();
     })
@@ -170,6 +171,7 @@ function createThreeInput() {
         result.textContent = `Результат: [${getRandomArray(Number(input1.value), Number(input2.value), Number(input3.value))}]`;
         document.getElementById('result-block__1').appendChild(description);
         document.getElementById('result-block__1').appendChild(result);
+        successCalculation();
         inputSection.innerHTML = '';
         hide();
     })
@@ -188,6 +190,10 @@ function show() {
 
 function clear() {
     inputField.innerHTML = '';
+}
+
+function successCalculation() {
+    alert('Функція порахована - наведіться знову на блок в якому ви викликали функцію!');
 }
 
 function addCloseBtn() {

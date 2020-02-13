@@ -46,6 +46,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-self: center;
+    margin-top: 70px;
+    word-wrap: break-word;
 }
 
 .content p {
@@ -210,5 +212,6 @@ body {
 .result {
     font-size: 1.4em;
     color: #03d800;
+    width: 320px;
     font-weight: 900;
 }
