@@ -19,13 +19,13 @@ function getRandomMark() {
     return Math.floor(Math.random() * (maxMark + 1 - minMark) + minMark)
 }
 
-function setSubjectsResults(arr, mark) {
+function setSubjectsResults(arr) {
     return arr.map(item => {
-        const marks = mark();
+        const marks = getRandomMark();
         return [...item, marks]
     });
 }
 
 const couplesAndSubject = setSubject(coupleStudents, themes);
 const studentsMark = setMarks(students, marks);
-const couplesAndMarks = setSubjectsResults(couplesAndSubject, getRandomMark);
+const couplesAndMarks = setSubjectsResults(couplesAndSubject);
