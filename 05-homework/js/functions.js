@@ -1,5 +1,5 @@
 /*-------------------------------------------Additional functions section---------------------------------------------*/
-const isPrime = (arr) => {
+const integerValue = (arr) => {
     return arr.filter(item => {
         return !item.toString().includes('.')
     }).map(el => Number(el));
@@ -22,7 +22,7 @@ const getRandomArray = (length, min, max) => {
 const getModa = (numbers) => {
     let result = [];
     let count = 0;
-    const filteredPrime = isPrime(numbers).sort((a, b) => a - b);
+    const filteredPrime = integerValue(numbers).sort((a, b) => a - b);
 
     for (let i = 0; i < filteredPrime.length; i++) {
         if (filteredPrime[i] === filteredPrime[i + 1]) {
@@ -46,27 +46,27 @@ const getModa = (numbers) => {
 };
 
 const getAverage = (numbers) => {
-    const filteredPrime = isPrime(numbers);
+    const filteredPrime = integerValue(numbers);
     return (filteredPrime.reduce((sum, cur) => sum + cur, 0) / filteredPrime.length).toFixed(2);
 };
 
 const getMedian = (numbers) => {
-    const filteredPrime = isPrime(numbers).sort((a, b) => a - b);
+    const filteredPrime = integerValue(numbers).sort((a, b) => a - b);
     return filteredPrime.length % 2 !== 0 ? filteredPrime[Math.floor(filteredPrime.length / 2)] : (filteredPrime[filteredPrime.length / 2 - 1] + filteredPrime[filteredPrime.length / 2]) / 2;
 };
 
 const filterEvenNumbers = (numbers) => {
-    const filteredPrime = isPrime(numbers);
+    const filteredPrime = integerValue(numbers);
     return filteredPrime.filter(el => el % 2 !== 0)
 };
 
 const countPositiveNumbers = (numbers) => {
-    const filteredPrime = isPrime(numbers);
+    const filteredPrime = integerValue(numbers);
     return filteredPrime.filter(el => el >= 0).length;
 };
 
 const getDividedByFive = (numbers) => {
-    const filteredPrime = isPrime(numbers);
+    const filteredPrime = integerValue(numbers);
     return filteredPrime.filter(el => el % 5 === 0)
 };
 
