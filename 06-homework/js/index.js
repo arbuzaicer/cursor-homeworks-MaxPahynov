@@ -89,6 +89,7 @@ const calculateWordLetters = (str) => {
                 count++;
                 obj[strArr[i]] = count;
                 count = 1;
+
             }
         }
     }
