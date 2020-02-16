@@ -81,7 +81,7 @@ const getBestStudent = (arr) => {
 const calculateWordLetters = (str) => {
     let count = 1;
     const strArr = str.toLowerCase().split('');
-    let obj = {};
+    const obj = {};
     for (let i = 0; i < strArr.length; i++) {
         obj[strArr[i]] = count;
         for (let j = 0; j < strArr.length; j++) {
