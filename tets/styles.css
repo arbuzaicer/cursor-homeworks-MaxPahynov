@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    background-color: rgba(238, 130, 238, 0.43);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: pink;
+}
+.app {
+    height: 400px;
+    width: 400px;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+}
+.single {
+    height: 50px;
+    width: 50px;
+    transition: 0.2s;
+}
+.paire {
+    background: black;
+}
+#submit {
+    margin-top: 10px;
+    width: 150px;
+    height: 35px;
+    border: none;
+    transition: 0.4s;
+}
+#submit:hover {
+    background: #5a5a5a;
+}
+
+.single:hover {
+    background: #c0c0c0;
+}
+.paire:hover {
+    background: #383838;
+}

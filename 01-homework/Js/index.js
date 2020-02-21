@@ -9,13 +9,13 @@ document.getElementById('submit').addEventListener('click', getDataHandler);
 function getDataHandler(event) {
     event.preventDefault();
     document.body.style.height = '150%';
-    resBtn.classList.remove('hide');
+    resBtn.classList.remove('hidden');
     document.querySelector('.data').innerHTML = innerHTML();
 
     resBtn.addEventListener('click', () => {
         document.querySelector('.data').innerHTML = '';
         document.body.style.height = '100vh';
-        resBtn.classList.add('hide');
+        resBtn.classList.add('hidden');
     });
 }
 
