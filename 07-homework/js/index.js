@@ -3,10 +3,10 @@ const latvia = {tax: 0.25, middleSalary: 1586, vacancies: 3921};
 const litva = {tax: 0.15, middleSalary: 1509, vacancies: 1114};
 
 function getMyTaxes(salary) {
-    return salary - salary * this.tax
+    return salary * this.tax
 }
 
-console.log('Заробітна плата з урахуванням податків в обраній країні: ' + getMyTaxes.call(latvia, 2850))
+console.log('Податок в країні складає: ' + getMyTaxes.call(latvia, 2850))
 
 function getMiddleTaxes() {
     return this.tax * this.middleSalary;
@@ -31,8 +31,7 @@ function getMySalary() {
         console.log(salaryData);
         timerID = setTimeout(tick, secondsValue * 1000);
     }, secondsValue * 1000)
-
 }
 
-getMySalary.call(ukraine)
+getMySalary.call(ukraine);
 
