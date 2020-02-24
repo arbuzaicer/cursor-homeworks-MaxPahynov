@@ -21,17 +21,17 @@ function getTotalTaxes() {
 console.log('Сумарана кількість податків в обраній країні: ' + getTotalTaxes.call(ukraine))
 
 function getMySalary() {
-    const secondsValue = 10;
-
-    let timerID = setTimeout(tick = () => {
-        const salary = Number(Math.floor(Math.random() * (2001 - 1500) + 1500));
-        const taxes = Number((salary * this.tax).toFixed(2));
-        const profit = Number((salary - taxes).toFixed(2));
-        const salaryData = {salary, taxes, profit};
-        console.log(salaryData);
-        timerID = setTimeout(tick, secondsValue * 1000);
-    }, secondsValue * 1000)
+    const minSalary = 1500;
+    const maxSalary = 2000;
+    const salary = Number(Math.floor(Math.random() * (maxSalary - minSalary) + minSalary));
+    const taxes = Number((salary * this.tax).toFixed(2));
+    const profit = Number((salary - taxes).toFixed(2));
+    return {salary, taxes, profit};
 }
 
-getMySalary.call(ukraine);
+const secondsValue = 10;
+let timerID = setTimeout(tick = () => {
+    console.log(getMySalary.call(ukraine));
+    timerID = setTimeout(tick, secondsValue * 1000);
+}, secondsValue * 1000);
 
