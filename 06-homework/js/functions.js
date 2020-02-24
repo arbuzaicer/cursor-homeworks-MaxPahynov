@@ -38,6 +38,7 @@ const getSubjects = (item) => {
     return subjects.map(item => (item.charAt(0).toUpperCase() + item.slice(1)).replace('_', ' '));
 };
 
+console.log('Предмети: '+getSubjects(students[0]))
 
 /*---------------------------------------------------------------------------------------------------------------------*/
 
