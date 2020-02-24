@@ -1,0 +1,78 @@
+/*------------------------------------------------------Main tasks------------------------------------------------------*/
+
+class Student {
+    constructor(university, course, fullName) {
+        this.university = university;
+        this.course = course;
+        this.fullName = fullName;
+        this.marksData = [5, 4, 4, 5, 5];
+        this.isDismiss = false;
+    }
+
+    getInfo() {
+        return `Студент ${this.course}го курсу ${this.university},  ${this.fullName}`
+    }
+
+    dismiss() {
+        this.isDismiss = true;
+    }
+
+    recover() {
+        this.isDismiss = false;
+    }
+
+    get marks() {
+        if (this.isDismiss) {
+            return null;
+        }
+        return this.marksData;
+    }
+
+    set marks(value) {
+        this.marksData.push(value);
+    }
+
+    getAverageMark() {
+        return Number((this.marksData.reduce((total, curr) => total + curr, 0) / this.marksData.length).toFixed(2));
+    }
+}
+
+let studentOlga = new Student('Київський політехнічний інститут', 4, 'Ольга Романова');
+
+console.log(studentOlga.getInfo());
+studentOlga.dismiss();
+studentOlga.marks = 5;
+console.log('Студента відрахували, і його оцінки в цьому випадку ', studentOlga.marks);
+studentOlga.recover();
+console.log('Студента поновили, і його оцінки в цьому випадку ', studentOlga.marks);
+console.log(`Середній бал студента: ${studentOlga.fullName}`, studentOlga.getAverageMark());
+
+/*---------------------------------------------------Advanced tasks---------------------------------------------------*/
+
+console.warn('Advanced section - створюємо клас Budget Student')
+
+class BudgetStudent extends Student {
+    constructor(...props) {
+        super(...props);
+    }
+
+    getScholarship() {
+        let seconds = 30;
+        if (this.getAverageMark() < 4 || this.isDismiss) {
+            console.log('Сорі, але для стьопки треба вчитись((')
+        } else {
+            setInterval(() => {
+                console.log(`Ви отримали 1400 грн. стипендії`)
+            }, seconds * 1000)
+        }
+    }
+}
+
+let studIvan = new BudgetStudent('Львівскьий політех', 5, 'Олег Володимирський');
+studIvan.dismiss();
+studIvan.marks = 3;
+console.log('Студента відрахували, і його оцінки в цьому випадку ', studIvan.marks);
+studIvan.recover();
+console.log('Студента поновили, і його оцінки в цьому випадку ', studIvan.marks);
+console.log(`Середній бал студента: ${studIvan.fullName}`, studIvan.getAverageMark());
+studIvan.getScholarship();

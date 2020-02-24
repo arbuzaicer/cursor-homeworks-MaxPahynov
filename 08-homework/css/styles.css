@@ -1,0 +1,9 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #200122, #6f0000);
+    color: white;
+    font-size: 3.5em;
+}
