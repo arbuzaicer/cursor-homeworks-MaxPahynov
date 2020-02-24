@@ -35,48 +35,48 @@ const students = [
 
 const getSubjects = (item) => {
     const subjects = Object.keys(item['subjects']);
-    return subjects.map(item => (item.charAt(0).toUpperCase()+item.slice(1)).replace('_', ' '));
+    return subjects.map(item => (item.charAt(0).toUpperCase() + item.slice(1)).replace('_', ' '));
 };
 
 
 /*---------------------------------------------------------------------------------------------------------------------*/
 
 const getAverageMark = (item) => {
-    const marks = Object.values(item.subjects).flatMap(item=>item);
-    return Number((marks.reduce((sum, current)=>sum+current)/marks.length).toFixed(2));
+    const marks = Object.values(item.subjects).flatMap(item => item);
+    return Number((marks.reduce((sum, current) => sum + current) / marks.length).toFixed(2));
 };
 
+console.log(getAverageMark(students[0]));
 
 /*---------------------------------------------------------------------------------------------------------------------*/
 
 const getStudentInfo = (item) => {
-    const info = {...item};
-    delete info.subjects;
-    return JSON.stringify({...info, averageMark: getAverageMark(item)})
+    const {course, name} = item;
+    return {course, name, averageMark: getAverageMark(item)}
 };
 
-console.log('Інформація про студента ' +getStudentInfo(students[0]))
+console.log(`Інформація про студента:`, getStudentInfo(students[0]));
 
 
 /*---------------------------------------------------------------------------------------------------------------------*/
 
 const getStudentsNames = (arr) => {
-    return arr.map(el=>el.name).sort()
+    return arr.map(el => el.name).sort()
 }
 
-console.log('Імена студентів в алфавітному порядку '+getStudentsNames(students))
+console.log('Імена студентів в алфавітному порядку ' + getStudentsNames(students));
 
 
 /*---------------------------------------------------------------------------------------------------------------------*/
 
 const getBestStudent = (arr) => {
-    const studentsArr = arr.map(el=>JSON.parse(getStudentInfo(el)));
-    const maxMark = Math.max(...studentsArr.map(item=>item.averageMark));
-    const betterStudent = studentsArr.find(stud=>stud.averageMark === maxMark);
+    const studentsArr = arr.map(el => getStudentInfo(el));
+    const maxMark = Math.max(...studentsArr.map(item => item.averageMark));
+    const betterStudent = studentsArr.find(stud => stud.averageMark === maxMark);
     return betterStudent.name
 };
 
-console.log('Найкращий студент ' + getBestStudent(students))
+console.log('Найкращий студент ' + getBestStudent(students));
 
 /*---------------------------------------------------------------------------------------------------------------------*/
 
