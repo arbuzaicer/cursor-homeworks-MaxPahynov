@@ -23,7 +23,7 @@ console.log('Сумарана кількість податків в обран�
 function getMySalary(country) {
     const minSalary = 1500;
     const maxSalary = 2000;
-    const secondsValue = 1;
+    const secondsValue = 10;
 
     let timerID = setTimeout(getInfo = () => {
         const salary = Number(Math.floor(Math.random() * (maxSalary - minSalary) + minSalary));
@@ -34,6 +34,6 @@ function getMySalary(country) {
     }, secondsValue * 1000);
 }
 
-getMySalary(litva)
+getMySalary(litva);
 
 
