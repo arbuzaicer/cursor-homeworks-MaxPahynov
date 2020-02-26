@@ -1,0 +1,63 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #485563, #29323c);
+}
+
+.parent-box {
+    margin: 0;
+    padding: 0;
+    width: 252px;
+    height: 252px;
+    border: 1px dotted black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.button-section {
+    margin-left: 2em;
+    display: flex;
+    flex-direction: column;
+}
+
+.child-box {
+    height: 50px;
+    width: 50px;
+}
+
+.btn {
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+.lesson-info {
+    position: fixed;
+    top: 2em;
+    left: 1em;
+    color: white;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.designed {
+    position: fixed;
+    bottom: 2em;
+    right: 1em;
+    color: white;
+    font-weight: 600;
+    font-style: italic;
+}
+@media (max-width: 500px) {
+    body {
+        flex-direction: column;
+    }
+    .button-section {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
