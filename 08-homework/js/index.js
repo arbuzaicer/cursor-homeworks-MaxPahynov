@@ -49,30 +49,30 @@ console.log(`Середній бал студента: ${studentOlga.fullName}`,
 
 /*---------------------------------------------------Advanced tasks---------------------------------------------------*/
 
-console.warn('Advanced section - створюємо клас Budget Student')
+console.warn('Advanced section - створюємо клас Budget Student');
 
 class BudgetStudent extends Student {
     constructor(...props) {
         super(...props);
+        this.timeInterval = 30;
+        setInterval(this.getScholarship.bind(this), this.timeInterval * 1000)
     }
 
     getScholarship() {
-        let seconds = 30;
         if (this.getAverageMark() < 4 || this.isDismiss) {
             console.log('Сорі, але для стьопки треба вчитись((')
         } else {
-            setInterval(() => {
-                console.log(`Ви отримали 1400 грн. стипендії`)
-            }, seconds * 1000)
+            console.log(`Ви отримали 1400 грн. стипендії`);
         }
     }
 }
 
+
 let studIvan = new BudgetStudent('Львівскьий політех', 5, 'Олег Володимирський');
+
 studIvan.dismiss();
-studIvan.marks = 3;
+console.log(`Середній бал студента ${studIvan.fullName}, складає ${studIvan.getAverageMark()}`);
 console.log('Студента відрахували, і його оцінки в цьому випадку ', studIvan.marks);
 studIvan.recover();
 console.log('Студента поновили, і його оцінки в цьому випадку ', studIvan.marks);
 console.log(`Середній бал студента: ${studIvan.fullName}`, studIvan.getAverageMark());
-studIvan.getScholarship();
