@@ -29,6 +29,9 @@ class Student {
     }
 
     set marks(value) {
+        if (this.isDismiss) {
+            return null;
+        }
         this.marksData.push(value);
     }
 
@@ -55,11 +58,12 @@ class BudgetStudent extends Student {
     constructor(...props) {
         super(...props);
         this.timeInterval = 30;
+        this.validValue = 4;
         setInterval(this.getScholarship.bind(this), this.timeInterval * 1000)
     }
 
     getScholarship() {
-        if (this.getAverageMark() < 4 || this.isDismiss) {
+        if (this.getAverageMark() < this.validValue || this.isDismiss) {
             console.log('Сорі, але для стьопки треба вчитись((')
         } else {
             console.log(`Ви отримали 1400 грн. стипендії`);
