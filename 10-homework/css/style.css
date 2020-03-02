@@ -29,7 +29,7 @@ body {
 .string {
     height: 4%;
     width: 100%;
-    background-color: #fff;
+    background-color: rgba(0, 11, 255, 0.14);
     z-index: 999;
     position: absolute;
 }
