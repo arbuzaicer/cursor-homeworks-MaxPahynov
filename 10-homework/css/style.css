@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.title {
+    color: #ffffff;
+}
+.guitar {
+    height: 80%;
+    width: 80%;
+    position: relative;
+}
+
+#guitar {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.string {
+    height: 4%;
+    width: 100%;
+    background-color: #fff;
+    z-index: 999;
+    position: absolute;
+}
+#string1 {
+    top: 21%;
+}
+
+#string2 {
+    top: 31%;
+}
+
+#string3 {
+    top: 40%;
+}
+
+#string4 {
+    top: 49%;
+}
+
+#string5 {
+    top: 58%;
+}
+
+#string6 {
+    top: 66%;
+}
