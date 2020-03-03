@@ -11,13 +11,15 @@ body {
     align-items: center;
     height: 100vh;
 }
+
 .rules-container {
     width: 100%;
     height: 100%;
-    background-color: rgba(31, 3, 115, 0.75);
+    background-color: rgba(31, 3, 115, 0.42);
     position: absolute;
     z-index: 2;
 }
+
 .work-name {
     position: fixed;
     top: 10px;
@@ -25,10 +27,12 @@ body {
     color: #ffffff;
     font-style: italic;
 }
+
 .title {
     color: #ffffff;
     margin-bottom: 20px;
 }
+
 .guitar {
     height: 80%;
     width: 80%;
@@ -41,34 +45,56 @@ body {
     position: absolute;
 }
 
-.string {
-    height: 4%;
-    width: 100%;
-    background-color: rgba(0, 11, 255, 0.14);
-    position: absolute;
+.strings-section {
+    width: 19.5%;
+    height: 19.5%;
+    position: relative;
 }
+
+.string {
+    height: 8%;
+    width: 265%;
+    position: relative;
+    transform: rotate(112deg);
+}
+
+.string > img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
 #string1 {
-    top: 21%;
+    top: 255%;
+    left: 170%;
 }
 
 #string2 {
-    top: 31%;
+    top: 250%;
+    left: 185%;
 }
 
 #string3 {
-    top: 40%;
+    top: 242%;
+    left: 200%;
 }
 
 #string4 {
-    top: 49%;
+    top: 233%;
+    left: 215%;
 }
 
 #string5 {
-    top: 58%;
+    top: 225%;
+    left: 230%;
 }
 
 #string6 {
-    top: 66%;
+    top: 218%;
+    left: 245%;
+}
+.active {
+    background: #07d5ff;
 }
 
 .designed {
