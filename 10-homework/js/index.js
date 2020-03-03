@@ -13,24 +13,22 @@ class Guitar {
     }
 
     mousePlaying(event) {
-        for (let i = 0; i < this.strings.length; i++) {
-            if (event.target === this.strings[i]) {
-                this.strings[i].addEventListener('mouseleave', () => {
-                    this.stringSound(i);
-                    this.isStringActive = true;
+        this.strings.forEach((singleString, i) => {
+            singleString.addEventListener('mouseleave', () => {
+                this.stringSound(i);
+                this.isStringActive = true;
+                this.isStringActiveFunc(i);
+                setTimeout(() => {
+                    this.isStringActive = false;
                     this.isStringActiveFunc(i);
-                    setTimeout(() => {
-                        this.isStringActive = false;
-                        this.isStringActiveFunc(i);
-                    }, 250)
-                })
-            }
-        }
+                }, 250)
+            })
+        })
     }
 
     buttonsPlaying(event) {
-        for (let i = 0; i < this.stringsButtons.length; i++) {
-            if (event.code === this.stringsButtons[i]) {
+        this.stringsButtons.forEach((singleBtn, i) => {
+            if (event.code === singleBtn) {
                 this.stringSound(i);
                 this.isStringActive = true;
                 this.isStringActiveFunc(i);
@@ -39,7 +37,7 @@ class Guitar {
                     this.isStringActiveFunc(i);
                 }, 250)
             }
-        }
+        })
     }
 
     stringSound(iter) {
