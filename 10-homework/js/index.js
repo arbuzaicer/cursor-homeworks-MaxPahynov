@@ -8,8 +8,10 @@ const sounds = document.querySelectorAll('.sound');
 window.addEventListener('mousemove', (e) => {
     for (let i = 0; i < strings.length; i++) {
         if (e.target === strings[i]) {
-            sounds[i].currentTime = 0;
-            sounds[i].play();
+            strings[i].addEventListener('mouseleave', ()=> {
+                sounds[i].currentTime = 0;
+                sounds[i].play();
+            })
         }
     }
 });
