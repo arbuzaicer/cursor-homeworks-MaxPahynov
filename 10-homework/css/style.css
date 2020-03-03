@@ -11,6 +11,13 @@ body {
     align-items: center;
     height: 100vh;
 }
+.rules-container {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(31, 3, 115, 0.75);
+    position: absolute;
+    z-index: 2;
+}
 .work-name {
     position: fixed;
     top: 10px;
@@ -38,7 +45,6 @@ body {
     height: 4%;
     width: 100%;
     background-color: rgba(0, 11, 255, 0.14);
-    z-index: 999;
     position: absolute;
 }
 #string1 {
