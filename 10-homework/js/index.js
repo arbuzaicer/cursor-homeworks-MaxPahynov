@@ -7,7 +7,8 @@ class Guitar {
         this.isStringActive = false;
         this.isRulesOpen = true;
         this.openBtn = document.getElementById('rules-openBtn');
-        document.getElementById('rules-closeBtn').addEventListener('click', this._closeRules.bind(this));
+        this.closeBtn =  document.getElementById('rules-closeBtn');
+        this.closeBtn.addEventListener('click', this._closeRules.bind(this));
         this.openBtn.addEventListener('click', () => {
             this._closeRules();
         })
@@ -17,13 +18,10 @@ class Guitar {
         this.isRulesOpen = !this.isRulesOpen;
         this._play();
         document.querySelector('.rules-container').classList.toggle('close');
-        this.isRulesOpen ? this.openBtn.style.display = 'none': this.openBtn.style.display = 'block';
+        this.isRulesOpen ? this.openBtn.style.display = 'none' : this.openBtn.style.display = 'block';
     }
 
     _play() {
-        if(this.isRulesOpen) {
-            return;
-        }
         if (!this.isRulesOpen) {
             this.guitarContainer.addEventListener('mouseover', this.mousePlaying.bind(this));
             window.addEventListener('keyup', this.buttonsPlaying.bind(this))
@@ -33,13 +31,7 @@ class Guitar {
     mousePlaying(event) {
         this.strings.forEach((singleString, i) => {
             singleString.addEventListener('mouseleave', () => {
-                this.stringSound(i);
-                this.isStringActive = true;
-                this.isStringActiveFunc(i);
-                setTimeout(() => {
-                    this.isStringActive = false;
-                    this.isStringActiveFunc(i);
-                }, 250)
+                this.addStringStyles(i);
             })
         })
     }
@@ -47,13 +39,7 @@ class Guitar {
     buttonsPlaying(event) {
         this.stringsButtons.forEach((singleBtn, i) => {
             if (event.code === singleBtn) {
-                this.stringSound(i);
-                this.isStringActive = true;
-                this.isStringActiveFunc(i);
-                setTimeout(() => {
-                    this.isStringActive = false;
-                    this.isStringActiveFunc(i);
-                }, 250)
+                this.addStringStyles(i);
             }
         })
     }
@@ -70,6 +56,16 @@ class Guitar {
         if (!this.isStringActive) {
             this.strings[iter].classList.remove('active')
         }
+    }
+
+    addStringStyles(iter) {
+        this.stringSound(iter);
+        this.isStringActive = true;
+        this.isStringActiveFunc(iter);
+        setTimeout(() => {
+            this.isStringActive = false;
+            this.isStringActiveFunc(iter);
+        }, 250)
     }
 }
 
