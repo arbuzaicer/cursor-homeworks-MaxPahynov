@@ -15,9 +15,55 @@ body {
 .rules-container {
     width: 100%;
     height: 100%;
-    background-color: rgba(31, 3, 115, 0.42);
+    background-color: rgba(0, 0, 0, 0.82);
     position: absolute;
+    color: #ffffff;
     z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: ease-in 0.75s;
+}
+
+.rules-container > p {
+    margin-top: 2em;
+}
+
+.rules-list > li {
+    margin-top: 2em;
+    list-style: none;
+    font-size: 1.2em;
+}
+.rules-Btn {
+    position: fixed;
+    font-size: 2em;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+}
+#rules-openBtn {
+    display: none;
+    top: 150px;
+    position: fixed;
+    left: -35px;
+    border: 2px solid #ffffff;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    transform: rotate(270deg);
+}
+#rules-closeBtn {
+    top: 25px;
+    right: 25px;
+}
+.rules-closeBtn {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    font-size: 2em;
+    background: transparent;
+    border: none;
+    color: #ffffff;
 }
 
 .work-name {
@@ -26,11 +72,6 @@ body {
     left: 20px;
     color: #ffffff;
     font-style: italic;
-}
-
-.title {
-    color: #ffffff;
-    margin-bottom: 20px;
 }
 
 .guitar {
@@ -93,6 +134,7 @@ body {
     top: 218%;
     left: 245%;
 }
+
 .active {
     background: #07d5ff;
 }
@@ -103,4 +145,8 @@ body {
     right: 20px;
     color: #ffffff;
     font-style: italic;
+}
+
+.close {
+    transform: translateX(-100%);
 }

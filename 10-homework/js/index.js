@@ -5,11 +5,29 @@ class Guitar {
         this.sounds = document.querySelectorAll('.sound');
         this.stringsButtons = ["Numpad6", "Numpad5", "Numpad4", "Numpad3", "Numpad2", "Numpad1"];
         this.isStringActive = false;
+        this.isRulesOpen = true;
+        this.openBtn = document.getElementById('rules-openBtn');
+        document.getElementById('rules-closeBtn').addEventListener('click', this._closeRules.bind(this));
+        this.openBtn.addEventListener('click', () => {
+            this._closeRules();
+        })
+    }
+
+    _closeRules() {
+        this.isRulesOpen = !this.isRulesOpen;
+        this._play();
+        document.querySelector('.rules-container').classList.toggle('close');
+        this.isRulesOpen ? this.openBtn.style.display = 'none': this.openBtn.style.display = 'block';
     }
 
     _play() {
-        this.guitarContainer.addEventListener('mouseover', this.mousePlaying.bind(this));
-        window.addEventListener('keyup', this.buttonsPlaying.bind(this))
+        if(this.isRulesOpen) {
+            return;
+        }
+        if (!this.isRulesOpen) {
+            this.guitarContainer.addEventListener('mouseover', this.mousePlaying.bind(this));
+            window.addEventListener('keyup', this.buttonsPlaying.bind(this))
+        }
     }
 
     mousePlaying(event) {
@@ -56,5 +74,4 @@ class Guitar {
 }
 
 const guitar = new Guitar();
-guitar._play();
 
