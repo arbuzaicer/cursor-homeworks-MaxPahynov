@@ -1,21 +1,44 @@
-async function getRandomChinese(length) {
+const wordLength = document.getElementById('word-length');
+const submitBtn = document.getElementById('submit');
+const timeOutInput = document.getElementById('set-timeout');
+
+submitBtn.addEventListener('click', insertChineseWord);
+
+function insertChineseWord() {
+    const length = Number(wordLength.value);
+    const time = Number(timeOutInput.value);
+    if (!inputValidation(length, time)) {
+        return;
+    }
+    getRandomChinese(length, time).then(data => {
+        if (document.querySelector('.result')) {
+            document.body.removeChild(document.querySelector('.result'))
+        }
+        const output = document.createElement('h1');
+        output.classList.add('result');
+        output.textContent = data;
+        document.body.appendChild(output);
+    });
+}
+
+async function getRandomChinese(length, time) {
     let counter = 0;
     let result = '';
+    const timeOutValue = time;
     let promise = new Promise((resolve) => {
         setTimeout(() => {
-            result += createChinaWord();
+            result += createChineseWord();
             resolve(result);
-        }, 50)
+        }, timeOutValue)
     });
-
-    while (counter < length-1) {
+    for (let i = 0; i < length - 1; i++) {
         await promise
             .then(() => {
                 return new Promise(res => {
                     setTimeout(() => {
-                        result += createChinaWord();
+                        result += createChineseWord();
                         res(result);
-                    }, 50)
+                    }, timeOutValue)
                 })
             });
         counter++;
@@ -23,50 +46,19 @@ async function getRandomChinese(length) {
     return result;
 }
 
-console.log(getRandomChinese(5).then((data)=> {
-    console.log(data)
-}))
-
-
-function createChinaWord() {
+function createChineseWord() {
     const now = Date.now();
     let sign = now.toString().substr(8);
-    if (sign.length < 5) {
-        sign = 1 + sign;
-    }
-    sign = String.fromCharCode(sign);
-    return sign;
+    return String.fromCharCode(sign.toString());
 }
 
-/*let prom = new Promise((resolve) => {
-    let a = 1;
-    setTimeout(() => {
-        resolve(a);
-    }, 1000)
-});
-
-prom
-    .then(data => {
-        return new Promise((res) => {
-            setTimeout(() => {
-                res(successCallback(data));
-            }, 1500)
-        });
-    })
-    .then(data => {
-        return new Promise((res) => {
-            setTimeout(() => {
-                res(successCallback(data));
-            }, 1500)
-        });
+function inputValidation() {
+    let args = Array.from(arguments);
+    args.forEach(item => {
+        if (!item || item < 0) {
+            alert('Ввєді валідна чісло!!!');
+            return false;
+        }
     });
-
-function successCallback(value) {
-    console.log(value)
-    value++;
-    return value;
+    return true;
 }
-
-function failureCallback(error) {
-    console.log(error)
-}*/
