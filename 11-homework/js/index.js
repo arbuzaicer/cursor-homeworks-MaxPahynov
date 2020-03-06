@@ -1,38 +1,44 @@
-function getRandomChinese(length) {
+async function getRandomChinese(length) {
     let counter = 0;
-    let outputWord = '';
+    let result = '';
     let promise = new Promise((resolve) => {
         setTimeout(() => {
-            outputWord += createChinaWord();
-            resolve(outputWord);
-        }, 1500)
+            result += createChinaWord();
+            resolve(result);
+        }, 50)
     });
-    while (counter < length) {
-        promise
-            .then(data => { //хід думок такий, що я думав що поки робити зени в промісах до того моменту поки каунтер не дійде до довжини
+
+    while (counter < length-1) {
+        await promise
+            .then(() => {
                 return new Promise(res => {
                     setTimeout(() => {
-                        outputWord = data + createChinaWord();
-                        console.log(outputWord);
-                        res(outputWord);
-                    }, 1500)
+                        result += createChinaWord();
+                        res(result);
+                    }, 50)
                 })
             });
         counter++;
     }
-    return outputWord;
+    return result;
 }
+
+console.log(getRandomChinese(5).then((data)=> {
+    console.log(data)
+}))
+
 
 function createChinaWord() {
     const now = Date.now();
-    const sign = now.toString().substr(8);
-    return String.fromCharCode(sign);
+    let sign = now.toString().substr(8);
+    if (sign.length < 5) {
+        sign = 1 + sign;
+    }
+    sign = String.fromCharCode(sign);
+    return sign;
 }
 
-getRandomChinese(5)
-
-
-/*let prom = new Promise((resolve) => { //а тут я зробив приклад - коли запити робляться так як я хочу...
+/*let prom = new Promise((resolve) => {
     let a = 1;
     setTimeout(() => {
         resolve(a);
