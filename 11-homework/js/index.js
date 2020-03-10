@@ -1,4 +1,4 @@
-import {getRandomChinese} from './promises.js'
+import getRandomChinese from './promises.js'
 import inputValidation from './validation.js'
 
 /*Variables initializing*/
@@ -9,22 +9,26 @@ const timeOutInput = document.getElementById('set-timeout');
 const closeBtn = document.querySelector('.rules-open');
 const rulesLoader = document.querySelector('.cssload-box-loading');
 const rulesDescription = document.querySelector('.rules-description');
+const menuBtn = document.querySelector('.menu-icon');
 
 /*Listeners*/
 
 closeBtn.addEventListener('click', function (event) {
+    console.log(event.target)
     if (event.target.classList.contains('cssload-box-loading')) {
         rulesHandler(
             {el: closeBtn, className: 'rules-close'},
             {el: rulesLoader, className: 'hide'},
-            {el: rulesDescription, className: 'hide'}
+            {el: rulesDescription, className: 'hide'},
+            {el: menuBtn, className: 'hide'}
         )
     }
-    if (event.target.classList.contains('rules-close')) {
+    if (event.target.classList.contains('menu-icon')) {
         rulesHandler(
             {el: closeBtn, className: 'rules-close'},
             {el: rulesLoader, className: 'hide'},
-            {el: rulesDescription, className: 'hide'}
+            {el: rulesDescription, className: 'hide'},
+            {el: menuBtn, className: 'hide'}
         )
     }
 });
@@ -34,7 +38,8 @@ window.addEventListener('keyup', function (event) {
         rulesHandler(
             {el: closeBtn, className: 'rules-close'},
             {el: rulesLoader, className: 'hide'},
-            {el: rulesDescription, className: 'hide'}
+            {el: rulesDescription, className: 'hide'},
+            {el: menuBtn, className: 'hide'}
         )
     }
 });

@@ -1,4 +1,4 @@
-export async function getRandomChinese(length, time) {
+export default async function getRandomChinese(length, time) {
     let counter = 0;
     let result = '';
     const promise = new Promise((resolve) => {
