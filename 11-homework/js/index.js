@@ -7,10 +7,12 @@ const wordLengthInput = document.getElementById('word-length');
 const submitBtn = document.getElementById('submit');
 const timeOutInput = document.getElementById('set-timeout');
 const closeBtn = document.querySelector('.rules-open');
+const rulesLoader = document.querySelector('.cssload-box-loading');
+const rulesDescription = document.querySelector('.rules-description');
+
+/*Listeners*/
 
 closeBtn.addEventListener('click', function (event) {
-    const rulesLoader = document.querySelector('.cssload-box-loading');
-    const rulesDescription = document.querySelector('.rules-description');
     if (event.target.classList.contains('cssload-box-loading')) {
         rulesHandler(
             {el: closeBtn, className: 'rules-close'},
@@ -27,7 +29,19 @@ closeBtn.addEventListener('click', function (event) {
     }
 });
 
+window.addEventListener('keyup', function (event) {
+    if(event.code === "Escape") {
+        rulesHandler(
+            {el: closeBtn, className: 'rules-close'},
+            {el: rulesLoader, className: 'hide'},
+            {el: rulesDescription, className: 'hide'}
+        )
+    }
+});
+
 submitBtn.addEventListener('click', insertChineseWord);
+
+/*Private functions*/
 
 function rulesHandler() {
     const toggledElements = Array.from(arguments);
