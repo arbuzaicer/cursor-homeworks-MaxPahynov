@@ -1,14 +1,24 @@
-class Guitar {
-    constructor() {
-        this.guitarContainer = document.querySelector('.guitar');
-        this.strings = document.querySelectorAll('.string-single');
-        this.sounds = document.querySelectorAll('.sound');
-        this.stringsButtons = ["Numpad6", "Numpad5", "Numpad4", "Numpad3", "Numpad2", "Numpad1"];
-        this.isStringActive = false;
+const audio = {
+    defaultTune: [
+        new Audio('./sounds/String6.wav'),
+        new Audio('./sounds/String5.wav'),
+        new Audio('./sounds/String4.wav'),
+        new Audio('./sounds/String3.wav'),
+        new Audio('./sounds/String2.wav'),
+        new Audio('./sounds/String1.wav')
+    ]
+};
+const playingButtons = ["Numpad6", "Numpad5", "Numpad4", "Numpad3", "Numpad2", "Numpad1"];
+
+class eventsDOM {
+    constructor(play) {
+        this.play = play;
         this.isRulesOpen = true;
         this.openBtn = document.getElementById('rules-openBtn');
-        this.closeBtn =  document.getElementById('rules-closeBtn');
+        this.closeBtn = document.getElementById('rules-closeBtn');
+        this.rulesSection = document.querySelector('.rules-container');
         this.closeBtn.addEventListener('click', this._closeRules.bind(this));
+        window.addEventListener('keyup', this._escClose.bind(this));
         this.openBtn.addEventListener('click', () => {
             this._closeRules();
         })
@@ -16,16 +26,33 @@ class Guitar {
 
     _closeRules() {
         this.isRulesOpen = !this.isRulesOpen;
-        this._play();
-        document.querySelector('.rules-container').classList.toggle('close');
-        this.isRulesOpen ? this.openBtn.style.display = 'none' : this.openBtn.style.display = 'block';
+        this.play;
+        this.rulesSection.classList.toggle('close');
+        this.openBtn.style.display = this.isRulesOpen
+            ? 'none'
+            : 'block';
+    }
+    
+    _escClose(event) {
+        if (event.code === 'Escape') {
+            this._closeRules()
+        }
+    }
+}
+
+
+class Guitar {
+    constructor(sounds, buttons) {
+        this.guitarContainer = document.querySelector('.guitar');
+        this.strings = document.querySelectorAll('.string-single');
+        this.sounds = sounds;
+        this.stringsButtons = buttons;
+        this.isStringActive = false;
     }
 
     _play() {
-        if (!this.isRulesOpen) {
-            this.guitarContainer.addEventListener('mouseover', this.mousePlaying.bind(this));
-            window.addEventListener('keyup', this.buttonsPlaying.bind(this))
-        }
+        this.guitarContainer.addEventListener('mouseover', this.mousePlaying.bind(this));
+        window.addEventListener('keyup', this.buttonsPlaying.bind(this))
     }
 
     mousePlaying(event) {
@@ -49,25 +76,26 @@ class Guitar {
         this.sounds[iter].play();
     }
 
-    isStringActiveFunc(iter) {
+    stringActiveFunc(iter) {
         if (this.isStringActive) {
             this.strings[iter].classList.add('active');
-        }
-        if (!this.isStringActive) {
+        } else {
             this.strings[iter].classList.remove('active')
         }
     }
 
     addStringStyles(iter) {
+        const stringAnimationTimeOut = 250;
         this.stringSound(iter);
         this.isStringActive = true;
-        this.isStringActiveFunc(iter);
+        this.stringActiveFunc(iter);
         setTimeout(() => {
             this.isStringActive = false;
-            this.isStringActiveFunc(iter);
-        }, 250)
+            this.stringActiveFunc(iter);
+        }, stringAnimationTimeOut)
     }
 }
 
-const guitar = new Guitar();
+const guitar = new Guitar(audio.defaultTune, playingButtons);
+const activatingGuitar = new eventsDOM(guitar._play());
 
