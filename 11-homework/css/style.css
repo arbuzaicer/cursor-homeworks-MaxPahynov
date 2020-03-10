@@ -137,3 +137,14 @@ body {
         transform: translateY(0) rotate(90deg);
     }
 }
+
+/*Media queries*/
+
+@media ( max-width: 680px) {
+    body {
+        background: linear-gradient(135deg, #911500, #480000);
+    }
+    .body-background {
+        display: none;
+    }
+}
