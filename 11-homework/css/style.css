@@ -6,8 +6,10 @@ body {
     height: 100vh;
     color: #ffed3d;
     font-size: 1.4em;
+    font-family: 'Neucha', cursive;
 }
-.body-background>img {
+
+.body-background > img {
     position: absolute;
     top: 0;
     left: 0;
@@ -15,17 +17,54 @@ body {
     width: 100%;
     height: 100%;
 }
+
+.rules-open {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(75deg, rgba(28, 0, 6, 0.95), rgba(111, 0, 8, 0.95), rgba(139, 0, 11, 0.95));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: ease-in 0.2s;
+}
+
+.rules-close {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    animation: cssload-animate 1.1s linear infinite;
+}
+
+.hide {
+    display: none;
+}
+
+.rules-description {
+    width: 75%;
+    font-size: 1.4em;
+    text-align: center;
+}
+
 .input-section {
     display: flex;
     flex-direction: column;
 }
+
 .timer__input {
     margin-top: 2em;
 }
-.input-data>input {
-   float: right;
+
+.input-data > input {
+    float: right;
     margin-left: 5em;
 }
+
 #submit {
     margin-top: 2em;
     height: 3em;
@@ -37,6 +76,64 @@ body {
     transition: 0.5s;
     font-size: 1.2em;
 }
+
 #submit:hover, #submit:active {
     background: rgba(0, 0, 0, 0.4);
+}
+
+.designed {
+    position: absolute;
+    bottom: 25px;
+    left: 10px;
+}
+
+/*Loader animation*/
+
+.cssload-box-loading {
+    width: 49px;
+    height: 49px;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+}
+
+.cssload-box-loading:before {
+    content: 'x';
+    position: absolute;
+    color: #950400;
+    left: 17px;
+    top: 22px;
+    z-index: 99999;
+}
+
+.cssload-box-loading:after {
+    content: '';
+    width: 49px;
+    transition: ease-in 0.7s;
+    height: 49px;
+    background: rgb(243, 232, 21);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 3px;
+    animation: cssload-animate 1.1s linear infinite;
+}
+
+@keyframes cssload-animate {
+    17% {
+        border-bottom-right-radius: 3px;
+    }
+    25% {
+        transform: translateY(9px) rotate(22.5deg);
+    }
+    50% {
+        transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+        border-bottom-right-radius: 39px;
+    }
+    75% {
+        transform: translateY(9px) rotate(67.5deg);
+    }
+    100% {
+        transform: translateY(0) rotate(90deg);
+    }
 }

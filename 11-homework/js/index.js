@@ -1,11 +1,34 @@
-const wordLength = document.getElementById('word-length');
+import {getRandomChinese} from './promises.js'
+import inputValidation from './validation.js'
+
+/*Variables initializing*/
+
+const wordLengthInput = document.getElementById('word-length');
 const submitBtn = document.getElementById('submit');
 const timeOutInput = document.getElementById('set-timeout');
+const closeBtn = document.querySelector('.rules-open');
+
+closeBtn.addEventListener('click', function (event) {
+    const rulesLoader = document.querySelector('.cssload-box-loading');
+    const rulesDescription = document.querySelector('.rules-description');
+    if(event.target.classList.contains('cssload-box-loading')) {
+        rulesHandler(closeBtn, rulesLoader, rulesDescription)
+    }
+    if(event.target.classList.contains('rules-close')) {
+        rulesHandler(closeBtn, rulesLoader, rulesDescription)
+    }
+});
 
 submitBtn.addEventListener('click', insertChineseWord);
 
+function rulesHandler(el1, el2, el3) {
+    el1.classList.toggle('rules-close');
+    el2.classList.toggle('hide');
+    el3.classList.toggle('hide');
+}
+
 function insertChineseWord() {
-    const length = Number(wordLength.value);
+    const length = Number(wordLengthInput.value);
     const time = Number(timeOutInput.value);
     if (!inputValidation(length, time)) {
         return;
@@ -14,51 +37,9 @@ function insertChineseWord() {
         if (document.querySelector('.result')) {
             document.body.removeChild(document.querySelector('.result'))
         }
-        const output = document.createElement('h1');
-        output.classList.add('result');
-        output.textContent = data;
-        document.body.appendChild(output);
+        const result = document.createElement('h1');
+        result.classList.add('result');
+        result.textContent = data;
+        document.body.appendChild(result);
     });
-}
-
-async function getRandomChinese(length, time) {
-    let counter = 0;
-    let result = '';
-    const timeOutValue = time;
-    let promise = new Promise((resolve) => {
-        setTimeout(() => {
-            result += createChineseWord();
-            resolve(result);
-        }, timeOutValue)
-    });
-    for (let i = 0; i < length - 1; i++) {
-        await promise
-            .then(() => {
-                return new Promise(res => {
-                    setTimeout(() => {
-                        result += createChineseWord();
-                        res(result);
-                    }, timeOutValue)
-                })
-            });
-        counter++;
-    }
-    return result;
-}
-
-function createChineseWord() {
-    const now = Date.now();
-    let sign = now.toString().substr(8);
-    return String.fromCharCode(sign.toString());
-}
-
-function inputValidation() {
-    let args = Array.from(arguments);
-    args.forEach(item => {
-        if (!item || item < 0) {
-            alert('Ввєді валідна чісло!!!');
-            return false;
-        }
-    });
-    return true;
 }
