@@ -11,20 +11,29 @@ const closeBtn = document.querySelector('.rules-open');
 closeBtn.addEventListener('click', function (event) {
     const rulesLoader = document.querySelector('.cssload-box-loading');
     const rulesDescription = document.querySelector('.rules-description');
-    if(event.target.classList.contains('cssload-box-loading')) {
-        rulesHandler(closeBtn, rulesLoader, rulesDescription)
+    if (event.target.classList.contains('cssload-box-loading')) {
+        rulesHandler(
+            {el: closeBtn, className: 'rules-close'},
+            {el: rulesLoader, className: 'hide'},
+            {el: rulesDescription, className: 'hide'}
+        )
     }
-    if(event.target.classList.contains('rules-close')) {
-        rulesHandler(closeBtn, rulesLoader, rulesDescription)
+    if (event.target.classList.contains('rules-close')) {
+        rulesHandler(
+            {el: closeBtn, className: 'rules-close'},
+            {el: rulesLoader, className: 'hide'},
+            {el: rulesDescription, className: 'hide'}
+        )
     }
 });
 
 submitBtn.addEventListener('click', insertChineseWord);
 
-function rulesHandler(el1, el2, el3) {
-    el1.classList.toggle('rules-close');
-    el2.classList.toggle('hide');
-    el3.classList.toggle('hide');
+function rulesHandler() {
+    const toggledElements = Array.from(arguments);
+    toggledElements.forEach(elem => {
+        elem.el.classList.toggle(elem.className)
+    })
 }
 
 function insertChineseWord() {
