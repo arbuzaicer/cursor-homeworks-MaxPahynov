@@ -1,0 +1,63 @@
+body {
+    background: linear-gradient(25deg, #292929, #191919);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    color: white;
+}
+.input-section {
+    width: 25vw;
+}
+#get-information {
+    color: #404040;
+    font-weight: 700;
+}
+.character-card {
+    width: 8em;
+    height: 10em;
+    margin: 0 10px 10px 0;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    transition: ease-in 0.5s;
+}
+.character-card__field {
+    width: 90%;
+    height: 2em;
+    border: 1px dotted black;
+    color: white;
+    text-align: center;
+    transition: 0.7s;
+}
+.result-data__window {
+    width: 80vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+.custom-btn {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+}
+.hide {
+    display: none;
+}
+.next {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+}
+
+/*Hover section*/
+.character-card:hover {
+    transform: scale(1.2);
+    background-color: #1d1d1d;
+    z-index: 9999;
+}
+.character-card__field:hover {
+    background-color: #b6b6b6;
+}
