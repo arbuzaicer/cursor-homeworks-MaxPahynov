@@ -14,16 +14,7 @@ const menuBtn = document.querySelector('.menu-icon');
 /*Listeners*/
 
 closeBtn.addEventListener('click', function (event) {
-    console.log(event.target)
-    if (event.target.classList.contains('cssload-box-loading')) {
-        rulesHandler(
-            {el: closeBtn, className: 'rules-close'},
-            {el: rulesLoader, className: 'hide'},
-            {el: rulesDescription, className: 'hide'},
-            {el: menuBtn, className: 'hide'}
-        )
-    }
-    if (event.target.classList.contains('menu-icon')) {
+    if (event.target.classList.contains('cssload-box-loading') || event.target.classList.contains('menu-icon')) {
         rulesHandler(
             {el: closeBtn, className: 'rules-close'},
             {el: rulesLoader, className: 'hide'},
@@ -62,8 +53,9 @@ function insertChineseWord() {
         return;
     }
     getRandomChinese(length, time).then(data => {
-        if (document.querySelector('.result')) {
-            document.body.removeChild(document.querySelector('.result'))
+        const resultSection = document.querySelector('.result');
+        if(resultSection) {
+            document.body.removeChild(resultSection)
         }
         const result = document.createElement('h1');
         result.classList.add('result');
