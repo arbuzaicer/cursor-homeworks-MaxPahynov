@@ -39,9 +39,8 @@ submitBtn.addEventListener('click', insertChineseWord);
 
 /*Private functions*/
 
-function rulesHandler() {
-    const toggledElements = Array.from(arguments);
-    toggledElements.forEach(elem => {
+function rulesHandler(...args) {
+    args.forEach(elem => {
         elem.el.classList.toggle(elem.className)
     })
 }
