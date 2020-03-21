@@ -1,0 +1,41 @@
+{
+  "name": "cursor-homeworks-maxpahynov",
+  "version": "1.0.0",
+  "description": "Combine all hw using webpack",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development",
+    "start": "webpack-dev-server --mode development --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arbuzaicer/cursor-homeworks-MaxPahynov.git"
+  },
+  "keywords": [
+    "final",
+    "vanilla",
+    "js",
+    "hw",
+    "cursor"
+  ],
+  "author": "Pashynov M",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arbuzaicer/cursor-homeworks-MaxPahynov/issues"
+  },
+  "homepage": "https://github.com/arbuzaicer/cursor-homeworks-MaxPahynov#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-loader": "^8.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.8.7"
+  }
+}

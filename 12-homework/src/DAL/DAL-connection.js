@@ -6,7 +6,7 @@ export const DAL = {
         const fullURL = `${baseUrl}films/${filmNumber}/`;
         const request = await fetch(fullURL, {
                 setHeaders: {
-                'Access-Control-Allow-Origin': 'http://localhost:63342'
+                'Access-Control-Allow-Origin': '*'
             }
         });
         const response = await request.json();

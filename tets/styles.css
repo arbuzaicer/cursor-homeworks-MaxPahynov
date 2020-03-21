@@ -9,35 +9,19 @@ body {
     flex-direction: column;
     color: pink;
 }
-.app {
-    height: 400px;
-    width: 400px;
-    border: 1px solid black;
+.character-card {
+    width: 15em;
+    height: 20em;
+    border-radius: 30px;
+    border: 2px solid black;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
 }
-.single {
-    height: 50px;
-    width: 50px;
-    transition: 0.2s;
-}
-.paire {
-    background: black;
-}
-#submit {
-    margin-top: 10px;
-    width: 150px;
-    height: 35px;
-    border: none;
-    transition: 0.4s;
-}
-#submit:hover {
-    background: #5a5a5a;
-}
-
-.single:hover {
-    background: #c0c0c0;
-}
-.paire:hover {
-    background: #383838;
+.character-card__field {
+    width: 90%;
+    border-radius: 10px;
+    height: 4em;
+    border: 2px solid black;
 }
