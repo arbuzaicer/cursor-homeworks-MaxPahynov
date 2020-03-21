@@ -6,7 +6,7 @@ function getMaxValue(value) {
 
 /*Function 2  - Создать функцию, которая вычисляет степень числа. Не используя Math.pow и **. Используйте цикл*/
 
-function power(num,pow) {
+function power(num, pow) {
     let result;
     const n = Number(num);
     const m = Number(pow);
@@ -30,7 +30,7 @@ function stringFormatting(str) {
 
 function remainingSalary(value) {
     const temp = Number(value);
-    const taxes = 19.5/100;
+    const taxes = 19.5 / 100;
     return (temp - temp * taxes).toFixed(2);
 }
 
@@ -47,7 +47,7 @@ function getRandomNumber(startValue, endValue) {
 function countLetter(letter, str) {
     let result = 0;
     str.toLowerCase().split('').find(a => {
-        if(a === letter) {
+        if (a === letter) {
             result++;
         }
     });
@@ -59,13 +59,12 @@ function countLetter(letter, str) {
 
 function convertCurrency(value) {
     const rate = 25;
-    if(value[value.length - 1] === '$') {
+    if (value[value.length - 1] === '$') {
         return parseInt(value.substring(0, value.length - 1)) * rate + ' UAH';
     }
-    if(value.substring(value.length - 3).toLowerCase() === 'uah') {
-       return parseInt(value.substring(0, value.length - 3)) / rate + ' $';
-    }
-    else {
+    if (value.substring(value.length - 3).toLowerCase() === 'uah') {
+        return parseInt(value.substring(0, value.length - 3)) / rate + ' $';
+    } else {
         return 'Не валідна валюта'
     }
 }

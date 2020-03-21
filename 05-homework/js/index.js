@@ -1,3 +1,18 @@
+/*Imports*/
+
+import {
+    getRandomArray,
+    getModa,
+    getAverage,
+    getMedian,
+    filterEvenNumbers,
+    countPositiveNumbers,
+    getDividedByFive,
+    replaceBadWords,
+    divideByThree,
+    generateCombinations
+} from '../js/functions.js'
+
 /*Buttons initializing*/
 
 const inputField = document.querySelector('.input-field');

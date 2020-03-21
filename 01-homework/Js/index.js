@@ -60,3 +60,4 @@ function innerHTML() {
         <div class="resData"> <div class="textField">Упущенная выгода</div> <div class="values">${profit}</div> </div>
         `
 }
+export const someValueHW1 = 456;

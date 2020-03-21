@@ -51,7 +51,7 @@ function startGame() {
 
 /*Loops logic*/
 
-function calculate(val1, val2, flag) {
+export function calculate(val1, val2, flag) {
     val1 =  Math.floor(val1);
     val2 =  Math.floor(val2);
 
@@ -83,5 +83,3 @@ function hideElement(elem) {
 function showElement(elem) {
     elem.classList.remove('hide')
 }
-
-export const value123 = 154;

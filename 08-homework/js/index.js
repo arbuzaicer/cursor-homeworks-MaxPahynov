@@ -42,17 +42,7 @@ class Student {
 
 let studentOlga = new Student('Київський політехнічний інститут', 4, 'Ольга Романова');
 
-console.log(studentOlga.getInfo());
-studentOlga.dismiss();
-studentOlga.marks = 5;
-console.log('Студента відрахували, і його оцінки в цьому випадку ', studentOlga.marks);
-studentOlga.recover();
-console.log('Студента поновили, і його оцінки в цьому випадку ', studentOlga.marks);
-console.log(`Середній бал студента: ${studentOlga.fullName}`, studentOlga.getAverageMark());
-
 /*---------------------------------------------------Advanced tasks---------------------------------------------------*/
-
-console.warn('Advanced section - створюємо клас Budget Student');
 
 class BudgetStudent extends Student {
     constructor(...props) {
@@ -64,19 +54,11 @@ class BudgetStudent extends Student {
 
     getScholarship() {
         if (this.getAverageMark() < this.validValue || this.isDismiss) {
-            console.log('Сорі, але для стьопки треба вчитись((')
+            /*console.log('Сорі, але для стьопки треба вчитись((')*/
         } else {
-            console.log(`Ви отримали 1400 грн. стипендії`);
+           /* console.log(`Ви отримали 1400 грн. стипендії`);*/
         }
     }
 }
 
-
-let studIvan = new BudgetStudent('Львівскьий політех', 5, 'Олег Володимирський');
-
-studIvan.dismiss();
-console.log(`Середній бал студента ${studIvan.fullName}, складає ${studIvan.getAverageMark()}`);
-console.log('Студента відрахували, і його оцінки в цьому випадку ', studIvan.marks);
-studIvan.recover();
-console.log('Студента поновили, і його оцінки в цьому випадку ', studIvan.marks);
-console.log(`Середній бал студента: ${studIvan.fullName}`, studIvan.getAverageMark());
+export const studIvan = new BudgetStudent('Львівскьий політех', 5, 'Олег Володимирський');

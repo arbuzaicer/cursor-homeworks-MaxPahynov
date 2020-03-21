@@ -38,16 +38,12 @@ const getSubjects = (item) => {
     return subjects.map(item => (item.charAt(0).toUpperCase() + item.slice(1)).replace('_', ' '));
 };
 
-console.log('Предмети: '+getSubjects(students[0]))
-
 /*---------------------------------------------------------------------------------------------------------------------*/
 
 const getAverageMark = (item) => {
     const marks = Object.values(item.subjects).flatMap(item => item);
     return Number((marks.reduce((sum, current) => sum + current) / marks.length).toFixed(2));
 };
-
-console.log(getAverageMark(students[0]));
 
 /*---------------------------------------------------------------------------------------------------------------------*/
 
@@ -56,17 +52,11 @@ const getStudentInfo = (item) => {
     return {course, name, averageMark: getAverageMark(item)}
 };
 
-console.log(`Інформація про студента:`, getStudentInfo(students[0]));
-
-
 /*---------------------------------------------------------------------------------------------------------------------*/
 
 const getStudentsNames = (arr) => {
     return arr.map(el => el.name).sort()
 }
-
-console.log('Імена студентів в алфавітному порядку ' + getStudentsNames(students));
-
 
 /*---------------------------------------------------------------------------------------------------------------------*/
 
@@ -76,8 +66,6 @@ const getBestStudent = (arr) => {
     const betterStudent = studentsArr.find(stud => stud.averageMark === maxMark);
     return betterStudent.name
 };
-
-console.log('Найкращий студент ' + getBestStudent(students));
 
 /*---------------------------------------------------------------------------------------------------------------------*/
 
@@ -92,13 +80,11 @@ const calculateWordLetters = (str) => {
                 count++;
                 obj[strArr[i]] = count;
                 count = 1;
-
             }
         }
     }
     return obj;
 };
 
-console.log(calculateWordLetters('тест'))
-
+export {students, getSubjects, getAverageMark, getBestStudent}
 

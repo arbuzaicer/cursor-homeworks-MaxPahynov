@@ -8,3 +8,6 @@ export default function inputValidation() {
     });
     return true;
 }
+export function testFunctionFrom11HW () {
+    return 'Hello from 11HW'
+}

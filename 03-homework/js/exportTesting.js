@@ -1,0 +1,1 @@
+export const valueFromHW3 = 'Value from 3 HW';

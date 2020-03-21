@@ -1,13 +1,3 @@
-const audio = {
-    defaultTune: [
-        new Audio('./sounds/String6.wav'),
-        new Audio('./sounds/String5.wav'),
-        new Audio('./sounds/String4.wav'),
-        new Audio('./sounds/String3.wav'),
-        new Audio('./sounds/String2.wav'),
-        new Audio('./sounds/String1.wav')
-    ]
-};
 const playingButtons = ["Numpad6", "Numpad5", "Numpad4", "Numpad3", "Numpad2", "Numpad1"];
 
 class eventsDOM {
@@ -21,7 +11,7 @@ class eventsDOM {
         window.addEventListener('keyup', this._escClose.bind(this));
         this.openBtn.addEventListener('click', () => {
             this._closeRules();
-        })
+        });
     }
 
     _closeRules() {
@@ -40,12 +30,18 @@ class eventsDOM {
     }
 }
 
-
 class Guitar {
-    constructor(sounds, buttons) {
+    constructor(buttons) {
         this.guitarContainer = document.querySelector('.guitar');
         this.strings = document.querySelectorAll('.string-single');
-        this.sounds = sounds;
+        this.sounds =  [
+            new Audio('./sounds/String6.wav'),
+            new Audio('./sounds/String5.wav'),
+            new Audio('./sounds/String4.wav'),
+            new Audio('./sounds/String3.wav'),
+            new Audio('./sounds/String2.wav'),
+            new Audio('./sounds/String1.wav')
+        ];
         this.stringsButtons = buttons;
         this.isStringActive = false;
     }
@@ -96,6 +92,10 @@ class Guitar {
     }
 }
 
-const guitar = new Guitar(audio.defaultTune, playingButtons);
+const guitar = new Guitar(playingButtons);
 const activatingGuitar = new eventsDOM(guitar._play());
+
+const testValueFromHW10 = 123;
+export default testValueFromHW10;
+
 

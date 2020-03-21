@@ -1,3 +1,5 @@
+import {couplesAndSubject, studentsMark,couplesAndMarks} from './functions.js'
+
 const submit = document.getElementById('submit');
 const students = ['Сашко', 'Ігор', 'Оленка', 'Іра', 'Олексій', 'Світлана'];
 const themes = ['Диференційні рівняння', 'Теорія автоматів', 'Алгоритми та структури даних'];
@@ -35,3 +37,5 @@ function createBlock(array, text) {
    wrap.appendChild(usersList);
    document.body.appendChild(wrap);
 }
+
+export {students, themes, marks, coupleStudents}

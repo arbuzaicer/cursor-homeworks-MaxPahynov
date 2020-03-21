@@ -1,9 +1,10 @@
+import {students, getSubjects, getAverageMark} from './functions.js'
+
 const container = document.querySelector('.container');
 
 /*Generating students*/
 
 const studentSingle = students.map((stud, i) => {
-
     return `
     <div class="single-user">
     
@@ -25,7 +26,6 @@ const studentSingle = students.map((stud, i) => {
 </div>
 </div>
 </div> 
-
 `
 }).join('');
 

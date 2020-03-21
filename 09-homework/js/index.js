@@ -1,4 +1,5 @@
 /*Variables initializing*/
+
 const parentBox = document.querySelector('.parent-box');
 const submitBtn = document.getElementById('submit');
 const intervalChangingBtn = document.getElementById('interval-changing');
@@ -8,11 +9,13 @@ const boxCounter = 25;
 const rgbValue = 255;
 
 /*Listeners*/
+
 submitBtn.addEventListener('click', generateBlocks);
 intervalChangingBtn.addEventListener('click', generateBlocksInterval);
 stopColorsChangingBtn.addEventListener('click', stopColorGenerating);
 
 /*Functions*/
+
 function generateBlocks() {
     parentBox.innerHTML = '';
     for (let i = 0; i < boxCounter; i++) {
@@ -35,3 +38,5 @@ function stopColorGenerating() {
 function generateColor() {
     return Math.floor(Math.random() * (rgbValue + 1));
 }
+
+export {generateColor}

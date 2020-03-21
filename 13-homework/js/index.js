@@ -1,15 +1,18 @@
 /*Variables section*/
+
 const increaseFontSizeBtn = document.getElementById('increase');
 const decreaseFontSizeBtn = document.getElementById('decrease');
 const textarea = document.querySelector('.font-size');
 const currentFont = document.querySelector('.badge-warning');
 
 /*Generators*/
-const idGenerator = createIdGenerator();
+
+export const idGenerator = createIdGenerator();
 const fontGenerator = newFontGenerator(14);
 fontGenerator.next();
 
 /*Listeners*/
+
 increaseFontSizeBtn.addEventListener('click', () => {
     let generator = fontGenerator.next('up').value;
 });
@@ -19,6 +22,7 @@ decreaseFontSizeBtn.addEventListener('click', () => {
 });
 
 /*Functions*/
+
 function* newFontGenerator(startSize) {
     textarea.style.fontSize = startSize + 'px';
     let currentFontSize = parseInt(window.getComputedStyle(textarea).fontSize);

@@ -100,3 +100,16 @@ const generateCombinations = (word) => {
 
     return result;
 };
+
+export {
+    getRandomArray,
+    getModa,
+    getAverage,
+    getMedian,
+    filterEvenNumbers,
+    countPositiveNumbers,
+    getDividedByFive,
+    replaceBadWords,
+    divideByThree,
+    generateCombinations
+}

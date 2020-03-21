@@ -1,3 +1,9 @@
+import {coupleStudents, themes, marks, students} from './index.js'
+
+const couplesAndSubject = setSubject(coupleStudents, themes);
+const studentsMark = setMarks(students, marks);
+const couplesAndMarks = setSubjectsResults(couplesAndSubject);
+
 function setSubject(arr, subject) {
     return arr.map((item, i) => {
         const singleCouple = item.reduce ((sum, el)=> {
@@ -26,6 +32,4 @@ function setSubjectsResults(arr) {
     });
 }
 
-const couplesAndSubject = setSubject(coupleStudents, themes);
-const studentsMark = setMarks(students, marks);
-const couplesAndMarks = setSubjectsResults(couplesAndSubject);
+export {couplesAndSubject, studentsMark, couplesAndMarks}

@@ -6,34 +6,31 @@ function getMyTaxes(salary) {
     return salary * this.tax
 }
 
-console.log('Податок в країні складає: ' + getMyTaxes.call(latvia, 2850))
-
 function getMiddleTaxes() {
     return this.tax * this.middleSalary;
 }
 
-console.log('Середня величина податків в обраній країні: ' + getMiddleTaxes.call(litva))
-
 function getTotalTaxes() {
     return this.tax * this.middleSalary * this.vacancies;
 }
-
-console.log('Сумарана кількість податків в обраній країні: ' + getTotalTaxes.call(ukraine))
 
 function getMySalary(country) {
     const minSalary = 1500;
     const maxSalary = 2000;
     const secondsValue = 10;
 
-    let timerID = setTimeout(getInfo = () => {
+    let timerID = setInterval(() => {
         const salary = Number(Math.floor(Math.random() * (maxSalary - minSalary) + minSalary));
         const taxes = Number((salary * country.tax).toFixed(2));
         const profit = Number((salary - taxes).toFixed(2));
-        console.log({salary, taxes, profit});
-        timerID = setTimeout(getInfo, secondsValue * 1000);
+/*
+        console.log({salary, taxes, profit});//turnedOff because webpack adjust and whole console logs data will display in console
+*/
     }, secondsValue * 1000);
 }
 
 getMySalary(litva);
+
+export {ukraine, latvia, litva, getMiddleTaxes};
 
 
