@@ -11,7 +11,7 @@ import {getMiddleTaxes, latvia} from "../../../07-homework/js/index"
 import {studIvan} from "../../../08-homework/js";
 import {generateColor} from "../../../09-homework/js"
 import testValueFromHW10 from "../../../10-homework/js";
-import {testFunctionFrom11HW} from "../../../11-homework/js/validation"
+import getRandomChinese from "../../../11-homework/js/promises";
 import {DAL} from "../../../12-homework/src/DAL/DAL-connection";
 import {idGenerator} from "../../../13-homework/js";
 
@@ -36,7 +36,7 @@ const hw13Btn = document.getElementById('hw13');
 /*Listeners*/
 
 hw1Btn.addEventListener('click', () => setResultData('.hw1', someValueHW1));
-hw2Btn.addEventListener('click', () => setResultData('.hw2', calculate(10, 15, true)));
+hw2Btn.addEventListener('click', () => setResultData('.hw2', calculate(10, 20, true)));
 hw3Btn.addEventListener('click', () => setResultData('.hw3', valueFromHW3));
 hw4Btn.addEventListener('click', () => setResultData('.hw4', studentsMark));
 hw5Btn.addEventListener('click', () => setResultData('.hw5', getRandomArray(5, 24, 58)));
@@ -45,7 +45,7 @@ hw7Btn.addEventListener('click', () => setResultData('.hw7', getMiddleTaxes.call
 hw8Btn.addEventListener('click', () => setResultData('.hw8', studIvan.getAverageMark()));
 hw9Btn.addEventListener('click', () => setResultData('.hw9', generateColor()));
 hw10Btn.addEventListener('click', () => setResultData('.hw10', testValueFromHW10));
-hw11Btn.addEventListener('click', () => setResultData('.hw11', testFunctionFrom11HW()));
+hw11Btn.addEventListener('click', async () => setResultData('.hw11', await getRandomChinese(5, 50).then(data=>JSON.stringify(data))));
 hw12Btn.addEventListener('click', async () => setResultData('.hw12', await DAL.getMoovieInfo(5).then(data => JSON.stringify(data).substr(0, 60) + '...')));
 hw13Btn.addEventListener('click', () => setResultData('.hw13', JSON.stringify(idGenerator.next())));
 
