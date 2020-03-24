@@ -14,11 +14,11 @@ fontGenerator.next();
 /*Listeners*/
 
 increaseFontSizeBtn.addEventListener('click', () => {
-    let generator = fontGenerator.next('up').value;
+    fontGenerator.next('up').value;
 });
 
 decreaseFontSizeBtn.addEventListener('click', () => {
-    let generator = fontGenerator.next('down').value;
+    fontGenerator.next('down').value;
 });
 
 /*Functions*/
@@ -31,7 +31,7 @@ function* newFontGenerator(startSize) {
         if (fontSize === 'up') {
             currentFontSize += 2;
         }
-        if (fontSize === 'down') {
+        else {
             currentFontSize -= 2;
         }
         textarea.style.fontSize = currentFontSize + 'px';
